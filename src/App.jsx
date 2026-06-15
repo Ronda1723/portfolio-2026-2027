@@ -21,13 +21,13 @@ const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 700
 function sizeFor(type) {
   if (isMobile()) return { w: window.innerWidth - 12, h: window.innerHeight - 90 }
   switch (type) {
-    case 'caseStudy': return { w: 660, h: 560 }
-    case 'startHere': return { w: 600, h: 520 }
-    case 'picture': return { w: 720, h: 560 }
-    case 'project': case 'about': case 'experience': case 'resume': case 'contact': return { w: 580, h: 470 }
-    case 'projects': case 'caseStudies': return { w: 500, h: 400 }
-    case 'blog': return { w: 580, h: 480 }
-    default: return { w: 520, h: 420 }
+    case 'caseStudy': return { w: 820, h: 660 }
+    case 'startHere': return { w: 720, h: 620 }
+    case 'picture': return { w: 880, h: 660 }
+    case 'project': case 'about': case 'experience': case 'resume': case 'contact': return { w: 680, h: 580 }
+    case 'projects': case 'caseStudies': return { w: 640, h: 520 }
+    case 'blog': return { w: 680, h: 580 }
+    default: return { w: 620, h: 520 }
   }
 }
 
