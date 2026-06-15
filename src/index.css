@@ -103,15 +103,19 @@ body {
 }
 
 /* ---------- Buttons & chips ---------- */
+/* PostHog-style "pushable" 3D button — a face on a solid lip that depresses on click */
 .mac-btn {
-  font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 13px;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 13.5px;
   background: var(--paper); color: var(--ink);
-  border: 1.5px solid var(--border); border-radius: 10px; padding: 6px 16px;
-  box-shadow: 2px 2px 0 0 var(--ink); cursor: pointer; transition: transform 0.05s, box-shadow 0.05s;
+  border: 1.5px solid var(--border); border-radius: 11px; padding: 8px 18px;
+  box-shadow: 0 4px 0 0 var(--ink); cursor: pointer;
+  transform: translateY(0); transition: transform 0.07s ease, box-shadow 0.07s ease, filter 0.1s ease;
+  display: inline-flex; align-items: center; gap: 6px;
 }
-.mac-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 0 var(--ink); }
-.mac-btn:active { transform: translate(2px, 2px); box-shadow: none; }
-.mac-btn-primary { color: #fff; box-shadow: 2px 2px 0 0 var(--ink); }
+.mac-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 0 0 var(--ink); filter: brightness(1.03); }
+.mac-btn:active { transform: translateY(4px); box-shadow: 0 0 0 0 var(--ink); }
+.mac-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.mac-btn-primary { color: #fff; }
 
 .chip {
   font-family: 'Inter', sans-serif; display: inline-block; font-size: 11px; font-weight: 600;
