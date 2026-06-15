@@ -29,11 +29,11 @@ export default function BootScreen({ onDone }) {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mac-window w-[320px] px-6 py-7 flex flex-col items-center text-center"
+          className="mac-window w-[340px] px-7 py-8 flex flex-col items-center text-center"
         >
-          <div className="text-[15px] font-semibold tracking-wide">Welcome to</div>
-          <div className="mt-1 text-2xl font-bold">Samita OS</div>
-          <div className="mt-1 text-[12px] opacity-70">System 7.0.1 · Portfolio Edition</div>
+          <div className="text-[14px] font-semibold tracking-wide" style={{ color: 'var(--muted)' }}>Welcome to</div>
+          <div className="mt-1 display text-3xl font-bold tracking-tight">Samita OS</div>
+          <div className="mt-1 text-[12px] pixel opacity-70">System 7.0.1 · Portfolio Edition</div>
           <div className="mt-5 w-full h-4 border border-black bg-white overflow-hidden">
             <motion.div
               className="h-full bg-black"

@@ -146,6 +146,7 @@ export default function App() {
       {!booted && <BootScreen onDone={() => setBooted(true)} />}
 
       <div className="desktop-bg w-full h-full relative overflow-hidden">
+        <div className="desktop-watermark">samita<br/>OS</div>
         <MenuBar
           onOpen={open}
           theme={theme}
@@ -178,7 +179,7 @@ export default function App() {
         {/* Trash */}
         <button className="absolute bottom-3 right-4 z-[100] flex flex-col items-center gap-1 group" onDoubleClick={() => { sfx.trash(); open('trash') }} title="Double-click to open Trash">
           <span className="text-4xl icon-emoji">🗑️</span>
-          <span className="text-[11px] px-1" style={{ background: 'var(--cream)' }}>Trash</span>
+          <span className="text-[11px] px-1 pixel" style={{ background: 'var(--cream)' }}>Trash</span>
         </button>
 
         {/* Dock for minimized */}
@@ -213,8 +214,8 @@ function DesktopIcon({ icon, pos, onDragStart, onOpen }) {
       style={{ left: pos.left, top: pos.top }}
       title={`Double-click to open ${icon.label}`}
     >
-      <span className="text-4xl icon-emoji drop-shadow-[1px_1px_0_rgba(0,0,0,0.35)]">{icon.emoji}</span>
-      <span className="text-[12px] text-center leading-tight px-1 group-focus:bg-black group-focus:text-[#f5f5ef]" style={{ background: 'color-mix(in srgb, var(--cream) 75%, transparent)' }}>
+      <span className="text-[40px] icon-emoji drop-shadow-[1px_1px_0_rgba(0,0,0,0.35)]">{icon.emoji}</span>
+      <span className="text-[12px] text-center leading-tight px-1.5 py-0.5 rounded pixel group-focus:bg-black group-focus:text-[#f5f5ef]" style={{ background: 'color-mix(in srgb, var(--cream) 78%, transparent)' }}>
         {icon.label}
       </span>
     </button>
