@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --cream: #eeefe9;
-  --cream-2: #e6e7df;
-  --ink: #1c1c1a;
-  --paper: #fbfbf8;
-  --border: #1c1c1a;
-  --muted: #6b6b63;
-  --red: #f54e00;
-  --blue: #1d4aff;
-  --yellow: #f9bd2b;
-  --purple: #b62ad9;
-  --teal: #30abc6;
+  --cream: #f7f2e8;
+  --cream-2: #efe6d4;
+  --ink: #2a241e;
+  --paper: #fff9f0;
+  --border: #2a241e;
+  --muted: #5c544b;
+  --orange: #f7a501;
+  --orange-dark: #e38b00;
+  --orange-light: #ffd166;
+  --red: #e85a4f;
+  --blue: #2d89c7;
+  --yellow: #ffd166;
+  --green: #4e9130;
+  --teal: #3fa6b0;
+  --purple: #b5587e;
 }
 
 * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
@@ -38,16 +42,16 @@ body {
 .desktop-bg {
   background-color: var(--cream);
   background-image:
-    radial-gradient(120% 90% at 18% 0%, rgba(245, 78, 0, 0.06), transparent 55%),
-    radial-gradient(120% 90% at 100% 100%, rgba(29, 74, 255, 0.07), transparent 55%),
-    radial-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+    radial-gradient(120% 90% at 16% 0%, rgba(247, 165, 1, 0.12), transparent 55%),
+    radial-gradient(120% 90% at 100% 100%, rgba(109, 190, 69, 0.12), transparent 55%),
+    radial-gradient(rgba(42, 36, 30, 0.05) 1px, transparent 1px);
   background-size: auto, auto, 6px 6px;
 }
-.theme-dark { --cream: #1b1d24; --cream-2: #23262f; --paper: #2a2d38; --ink: #f1f1ea; --muted: #a6a79e; --border: #000; }
+.theme-dark { --cream: #241f19; --cream-2: #2e2820; --paper: #322b23; --ink: #f3ece0; --muted: #b3a892; --border: #000; }
 .theme-dark .desktop-bg {
   background-image:
-    radial-gradient(120% 90% at 18% 0%, rgba(245, 78, 0, 0.12), transparent 55%),
-    radial-gradient(120% 90% at 100% 100%, rgba(29, 74, 255, 0.16), transparent 55%),
+    radial-gradient(120% 90% at 16% 0%, rgba(247, 165, 1, 0.16), transparent 55%),
+    radial-gradient(120% 90% at 100% 100%, rgba(78, 145, 48, 0.18), transparent 55%),
     radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 .desktop-watermark {
@@ -115,7 +119,7 @@ body {
 .mac-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 0 0 var(--ink); filter: brightness(1.03); }
 .mac-btn:active { transform: translateY(4px); box-shadow: 0 0 0 0 var(--ink); }
 .mac-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-.mac-btn-primary { color: #fff; }
+.mac-btn-primary { color: var(--ink); }
 
 .chip {
   font-family: 'Inter', sans-serif; display: inline-block; font-size: 11px; font-weight: 600;
@@ -201,28 +205,6 @@ body {
 .bubble { position: relative; background: var(--paper); border: 1.5px solid var(--border); box-shadow: 3px 3px 0 0 var(--ink); padding: 10px 12px; font-size: 12.5px; max-width: 230px; border-radius: 12px; font-family: 'Inter', sans-serif; }
 .bubble::after { content: ''; position: absolute; bottom: -9px; left: 18px; border-width: 9px 9px 0; border-style: solid; border-color: var(--border) transparent transparent; }
 .bubble::before { content: ''; position: absolute; bottom: -6px; left: 19px; z-index: 1; border-width: 8px 8px 0; border-style: solid; border-color: var(--paper) transparent transparent; }
-
-/* ---------- Pixel scene diorama ---------- */
-.pixel-scene {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  right: clamp(96px, 8vw, 150px);
-  width: clamp(300px, 40vw, 460px); aspect-ratio: 280 / 210;
-  z-index: 2; pointer-events: none;
-  border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 7px 9px 0 rgba(21,21,21,0.12), 0 16px 36px rgba(21,21,21,0.16);
-  background: #7cbf57;
-}
-.pixel-scene canvas {
-  width: 100%; height: 100%; display: block;
-  image-rendering: pixelated; image-rendering: crisp-edges;
-}
-.pixel-scene-label {
-  position: absolute; left: 8px; bottom: 6px; font-size: 9px; letter-spacing: 0.04em;
-  color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,0.5); opacity: 0.85;
-}
-@media (max-width: 760px) {
-  .pixel-scene { right: 50%; transform: translate(50%, -50%); top: 38%; width: min(78vw, 360px); opacity: 0.96; }
-}
 
 /* ---------- misc ---------- */
 .icon-emoji { image-rendering: auto; }

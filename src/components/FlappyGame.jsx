@@ -93,7 +93,7 @@ export default function FlappyGame() {
               {status === 'over'
                 ? <div className="text-[13px] mt-1">Score <b>{score}</b> · Best <b>{best}</b></div>
                 : <div className="text-[12px] mt-1" style={{ color: 'var(--muted)' }}>Fly the capsule through the asteroids.</div>}
-              <button className="mac-btn mac-btn-primary mt-3" style={{ background: '#1d4aff' }} onClick={() => actions.current.start()}>
+              <button className="mac-btn mac-btn-primary mt-3" style={{ background: 'var(--orange)' }} onClick={() => actions.current.start()}>
                 {status === 'over' ? '↻ Play again' : '▶ Launch'}
               </button>
               <div className="text-[11px] mt-2" style={{ color: 'var(--muted)' }}>Click / tap / Space to flap</div>

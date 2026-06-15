@@ -38,7 +38,7 @@ export const CASE_STUDIES = [
     id: 'vibe-coding', n: '01', name: 'Vibe Coding',
     subtitle: 'AI tools I built to think with',
     meta: 'Personal projects · Hackathons across SF · 2026 · Solo designer-developer',
-    accent: '#f54e00',
+    accent: '#f7a501', accentText: '#2a241e',
     hero: "I don't wireframe AI interfaces — I build them. Eight tools shipped in eight days.",
     lede: "A public 60-day building challenge that turned a designer who'd never shipped code into someone who prototypes AI products end-to-end — and got noticed for it.",
     stats: [
@@ -88,7 +88,7 @@ export const CASE_STUDIES = [
     id: 'skan-ai', n: '02', name: 'Skan AI',
     subtitle: 'Making AI agent systems legible',
     meta: 'Skan AI · Menlo Park, CA · Aug–Nov 2025 · Contract, working directly with the founder',
-    accent: '#1d4aff',
+    accent: '#2d89c7',
     hero: 'AI agents are invisible by default. My job was to make them understandable.',
     lede: "An enterprise AI startup needed to pitch a Large Process Model to investors. I translated 49 technical concepts into a deck that went into the room with Insight Partners.",
     stats: [
@@ -135,7 +135,7 @@ export const CASE_STUDIES = [
     id: 'playwise', n: '03', name: 'Playwise',
     subtitle: 'An LMS for a play-based pedagogy',
     meta: 'INST776 Capstone · UMD · 2024–2025 · Client: Dr. Caro Williams-Pierce · Team of 5',
-    accent: '#f9bd2b', accentText: '#151515',
+    accent: '#4e9130',
     hero: 'Canvas is “awful and inexcusable” for play-based learning. A real professor said that. So we designed the replacement.',
     lede: "A two-semester, five-sprint capstone designing a mobile-first Learning Management System for the Read-Watch-Play pedagogy — for a real client, ending in a development-ready handoff.",
     stats: [
@@ -181,7 +181,7 @@ export const CASE_STUDIES = [
     id: 'focusbuddy', n: '04', name: 'FocusBuddy',
     subtitle: 'Co-designed with ADHD',
     meta: 'INST704 Inclusive Design · UMD · Fall 2024 · Team: Samita, Ruchica Sinha, Urvi Varma',
-    accent: '#b62ad9',
+    accent: '#b5587e',
     hero: 'Productivity tools are making ADHD worse. We redesigned one from scratch — with the people they’re failing.',
     lede: "A participatory research project that co-designed a low-cognitive-load task app with graduate students who have ADHD — and discovered the problem was emotional, not functional.",
     stats: [
@@ -229,7 +229,7 @@ export const CASE_STUDIES = [
 // ----------------------------------------------------------------------------
 export const PROJECTS = [
   {
-    id: 'haru', day: 1, name: 'Haru 春', emoji: '🌸', accent: '#f9bd2b',
+    id: 'haru', day: 1, name: 'Haru 春', emoji: '🌸', accent: '#ffd166',
     one: 'A mood-first daily planner that doesn’t assume you wake up feeling the same every day.',
     tools: ['Claude', 'Cursor'], live: null, link: `${GH}/vibe-coding/project-log-01-haru.md`,
     steps: ['A card slides up like an iOS popup', 'Pick one of 5 moods', 'The card flips with a physical 3D animation', 'Your day reshapes — fewer tasks and wider time buffers when you choose “overwhelmed”'],
@@ -239,7 +239,7 @@ export const PROJECTS = [
     media: [{ id: 'mood', label: 'Mood selection state', w: 900, h: 1600 }, { id: 'plan', label: 'Flipped day-plan state', w: 900, h: 1600 }],
   },
   {
-    id: 'maison', day: 2, name: 'Maison', emoji: '🏠', accent: '#30abc6',
+    id: 'maison', day: 2, name: 'Maison', emoji: '🏠', accent: '#7ccbd6',
     one: 'An AI dream-home generator — describe a vibe, get a luxury concept with a real moodboard.',
     tools: ['Lovable', 'Groq', 'Unsplash'], live: null, link: `${GH}/vibe-coding/project-log-02-maison.md`,
     steps: ['Describe your dream-home vibe in plain language', 'Groq generates a cohesive design concept', 'Unsplash pulls a real moodboard from the concept keywords', 'Results lay out in a luxury editorial grid'],
@@ -249,7 +249,7 @@ export const PROJECTS = [
     media: [{ id: 'concept', label: 'Generated concept + moodboard', w: 1600, h: 1000 }],
   },
   {
-    id: 'decode', day: 3, name: 'Decode', emoji: '🧩', accent: '#1d4aff',
+    id: 'decode', day: 3, name: 'Decode', emoji: '🧩', accent: '#7fbcee',
     one: 'Type any concept, see GPT-4o and Claude explain it side by side — different mental models.',
     tools: ['Replit', 'Claude', 'GPT-4o'], live: 'https://decode--samitaprakash.replit.app', link: `${GH}/vibe-coding/project-log-03-decode.md`,
     steps: ['Type any concept', 'Both models fire simultaneously', 'Compare side by side; expand sub-concepts for definition, example, and “why it matters”', 'Export the session as a clean, textbook-style PDF'],
@@ -259,7 +259,7 @@ export const PROJECTS = [
     media: [{ id: 'landing', label: 'Landing page', w: 1600, h: 1000 }, { id: 'compare', label: 'Comparison view', w: 1600, h: 1000 }],
   },
   {
-    id: 'loop', day: 4, name: 'Loop', emoji: '🔁', accent: '#f54e00',
+    id: 'loop', day: 4, name: 'Loop', emoji: '🔁', accent: '#f7a501',
     one: 'A networking memory assistant — type naturally, it parses, saves, and reminds you to follow up.',
     tools: ['Replit', 'Claude', 'Supabase'], live: null, link: `${GH}/vibe-coding/project-log-04-loop.md`,
     steps: ['Type “just met James at a conf, send my portfolio tomorrow”', 'Claude parses name, context, next action, and due date', 'Confirm the parsed data and save to Supabase', 'The “Today” view shows only what’s due now'],
@@ -269,7 +269,7 @@ export const PROJECTS = [
     media: [{ id: 'input', label: 'Natural-language input', w: 900, h: 1600 }, { id: 'today', label: 'Today view', w: 900, h: 1600 }],
   },
   {
-    id: 'ponder', day: 5, name: 'Ponder', emoji: '🎙️', accent: '#b62ad9',
+    id: 'ponder', day: 5, name: 'Ponder', emoji: '🎙️', accent: '#d98bb0',
     one: 'A voice brain dump — speak freely, get back structured thoughts, action items, and a mood word.',
     tools: ['Smallest.ai', 'Claude', 'Google Calendar'], live: null, link: `${GH}/vibe-coding/project-log-05-ponder.md`,
     steps: ['Hold the orb and speak freely for up to 90 seconds', 'Smallest.ai transcribes in real time', 'Claude returns 3 key thoughts, 1–2 action items, and a one-word mood', 'One tap sends an action item to Google Calendar'],
@@ -279,7 +279,7 @@ export const PROJECTS = [
     media: [{ id: 'record', label: 'Recording state (orb)', w: 900, h: 1600 }, { id: 'result', label: 'Structured result', w: 900, h: 1600 }],
   },
   {
-    id: 'prep', day: 6, name: 'prep.', emoji: '🥗', accent: '#30abc6',
+    id: 'prep', day: 6, name: 'prep.', emoji: '🥗', accent: '#84c95e',
     one: 'A voice-first meal planner — tell it what’s in your fridge, get a full day of meals with nutrition.',
     tools: ['Claude', 'Smallest.ai'], live: null, link: `${GH}/vibe-coding/project-log-06-prep.md`,
     steps: ['Say what ingredients you have', 'Claude plans breakfast, lunch, and dinner', 'Get a nutrition verdict — is this enough for a healthy day, or do you need to shop?', 'Re-prompt to refine (“no rice, something quicker”) without starting over'],
@@ -289,7 +289,7 @@ export const PROJECTS = [
     media: [{ id: 'plan', label: 'Meal plan + nutrition', w: 900, h: 1600 }],
   },
   {
-    id: 'loop-capture', day: 7, name: 'Loop Capture', emoji: '🧲', accent: '#f54e00',
+    id: 'loop-capture', day: 7, name: 'Loop Capture', emoji: '🧲', accent: '#f2a93c',
     one: 'A Chrome extension that saves any LinkedIn profile to Loop in one click, with AI summaries.',
     tools: ['Claude Code', 'Chrome MV3', 'Supabase'], live: null, link: `${GH}/vibe-coding/project-log-07-loop-capture.md`,
     steps: ['On any LinkedIn profile, click the extension', 'A content script scrapes the page', 'Claude cleans the messy DOM and writes a short summary', 'Add a follow-up — it saves to Loop and creates a Google Calendar task'],
@@ -299,7 +299,7 @@ export const PROJECTS = [
     media: [{ id: 'popup', label: 'Extension popup on a profile', w: 1200, h: 900 }],
   },
   {
-    id: 'artemis', day: 8, name: 'Artemis II', emoji: '🚀', accent: '#1d4aff',
+    id: 'artemis', day: 8, name: 'Artemis II', emoji: '🚀', accent: '#6fb4e8',
     one: 'A Flappy-Bird-style tribute game built to celebrate the Artemis II launch.',
     tools: ['Emergent AI'], live: null, link: `${GH}/vibe-coding/project-log-08-artemis-game.md`,
     steps: ['Tap to fly the capsule upward', 'Dodge the space-debris field', 'Watch the score climb', 'Enjoy space-themed Artemis visuals'],

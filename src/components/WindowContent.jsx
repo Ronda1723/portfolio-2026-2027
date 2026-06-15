@@ -59,7 +59,7 @@ function StartHere({ open }) {
         <div className="my-4">{START_HERE.chips.map((c, i) => <span key={i} className="chip">✦ {c}</span>)}</div>
         <p className="text-[14px]" style={{ color: 'var(--muted)' }}>{START_HERE.lookingFor}</p>
         <div className="flex flex-wrap gap-2.5 mt-5">
-          <button className="mac-btn mac-btn-primary" style={{ background: '#f54e00' }} onClick={() => open('caseStudies')}>📂 Case Studies</button>
+          <button className="mac-btn mac-btn-primary" style={{ background: 'var(--orange)' }} onClick={() => open('caseStudies')}>📂 Case Studies</button>
           <button className="mac-btn" onClick={() => open('projects')}>📁 Projects</button>
           <button className="mac-btn" onClick={() => open('resume')}>📝 Resume</button>
           <button className="mac-btn" onClick={() => open('contact')}>✉️ Contact</button>
@@ -120,7 +120,7 @@ function Resume() {
       <h2>Highlights</h2>
       <ul>{RESUME.highlights.map((h, i) => <li key={i}>{h}</li>)}</ul>
       <div className="mt-6 flex gap-2.5">
-        <button className="mac-btn mac-btn-primary" style={{ background: '#1d4aff' }} onClick={() => alert('Drop resume.pdf in /public and link it here.')}>⬇ Download PDF</button>
+        <button className="mac-btn mac-btn-primary" style={{ background: 'var(--orange)' }} onClick={() => alert('Drop resume.pdf in /public and link it here.')}>⬇ Download PDF</button>
         <a className="mac-btn" href={`mailto:${PERSON.email}`}>Request latest</a>
       </div>
       <p className="text-[11px] mt-3" style={{ color: 'var(--muted)' }}>Placeholder — wire a real PDF in /public.</p>
@@ -328,7 +328,7 @@ function Games({ open }) {
             A Flappy-Bird-style tribute to the Artemis II launch. Tap, click, or hit Space to fly the capsule through the asteroid field.
           </div>
           <div className="flex flex-wrap gap-2.5">
-            <button className="mac-btn mac-btn-primary" style={{ background: '#1d4aff' }} onClick={() => open('game', 'artemis', 'Artemis II — Flappy')}>▶ Play</button>
+            <button className="mac-btn mac-btn-primary" style={{ background: 'var(--orange)' }} onClick={() => open('game', 'artemis', 'Artemis II — Flappy')}>▶ Play</button>
             <button className="mac-btn" onClick={() => open('project', 'artemis', 'Artemis II')}>📄 About this build</button>
           </div>
         </div>
