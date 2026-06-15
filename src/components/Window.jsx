@@ -81,18 +81,20 @@ export default function Window({ win, active, onFocus, onClose, onMinimize, onMa
         onTouchStart={startDrag}
         onDoubleClick={onMaximize}
       >
-        <div className="flex items-center gap-1 pl-1.5 z-10">
-          <button className="title-btn" title="Close" onClick={(e) => { e.stopPropagation(); onClose() }} onMouseDown={(e) => e.stopPropagation()} />
-        </div>
-        <div className="absolute left-1/2 -translate-x-1/2">
+        {/* left spacer keeps the title visually centered without overlapping the controls */}
+        <div className="flex-none" style={{ width: 64 }} />
+        <div className="flex-1 min-w-0 flex justify-center">
           <span className="title-text">{win.title}</span>
         </div>
-        <div className="flex items-center gap-1 ml-auto pr-1.5 z-10">
+        <div className="flex-none flex items-center gap-1.5 pr-2 z-10">
           <button className="title-btn" title="Minimize" onClick={(e) => { e.stopPropagation(); onMinimize() }} onMouseDown={(e) => e.stopPropagation()}>
-            <span style={{ fontSize: 8, lineHeight: 0 }}>–</span>
+            <span className="tb-glyph">–</span>
           </button>
           <button className="title-btn" title="Zoom" onClick={(e) => { e.stopPropagation(); onMaximize() }} onMouseDown={(e) => e.stopPropagation()}>
-            <span style={{ width: 5, height: 5, borderTop: '2px solid #000' }} />
+            <span className="tb-glyph">+</span>
+          </button>
+          <button className="title-btn close" title="Close" onClick={(e) => { e.stopPropagation(); onClose() }} onMouseDown={(e) => e.stopPropagation()}>
+            <span className="tb-glyph">×</span>
           </button>
         </div>
       </div>

@@ -85,11 +85,15 @@ body {
   white-space: nowrap; max-width: 70%; overflow: hidden; text-overflow: ellipsis;
 }
 .title-btn {
-  width: 12px; height: 12px; border: 1px solid var(--border); background: var(--paper);
-  border-radius: 3px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
+  width: 15px; height: 15px; border: 1px solid var(--border); background: var(--paper);
+  border-radius: 4px; display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0; padding: 0;
+  font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 11px; line-height: 1; color: var(--ink);
 }
 .title-btn:hover { background: var(--yellow); }
-.title-btn:active { background: var(--ink); }
+.title-btn.close:hover { background: var(--red); color: #fff; }
+.title-btn:active { transform: translateY(0.5px); }
+.tb-glyph { display: block; transform: translateY(-0.5px); }
 
 .resize-handle {
   position: absolute; right: 2px; bottom: 2px; width: 16px; height: 16px; cursor: nwse-resize; z-index: 5; opacity: 0.5;
