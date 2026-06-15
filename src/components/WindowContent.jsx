@@ -34,7 +34,7 @@ const FinderBar = ({ count, label }) => (
 
 function FolderGrid({ items, onOpen }) {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-5">
+    <div className="cqgrid cqgrid-folder p-5">
       {items.map((it) => (
         <button key={it.id} onDoubleClick={() => onOpen(it)}
           className="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-black/5 focus:bg-black focus:text-[#f5f5ef] outline-none transition-colors"
@@ -52,7 +52,7 @@ function StartHere({ open }) {
   return (
     <div>
       <div className="px-6 py-2 border-b border-black kicker" style={{ background: 'var(--yellow)', color: '#151515' }}>{START_HERE.kicker}</div>
-      <div className="p-7 prose-mac max-w-[620px]">
+      <div className="p-7 prose-mac max-w-[620px] mx-auto">
         <div className="headline text-[27px] mb-4">{START_HERE.headline}</div>
         {START_HERE.body.map((p, i) => <p key={i} className={i === 0 ? 'lead' : ''}>{p}</p>)}
         <div className="my-4">{START_HERE.chips.map((c, i) => <span key={i} className="chip">✦ {c}</span>)}</div>
@@ -72,7 +72,7 @@ function StartHere({ open }) {
 // ---------- Pages ----------
 function About() {
   return (
-    <div className="p-7 prose-mac max-w-[640px]">
+    <div className="p-7 prose-mac max-w-[640px] mx-auto">
       <div className="flex items-center gap-3 mb-4">
         <span className="text-[40px]">🧑‍💻</span>
         <div>
@@ -92,7 +92,7 @@ function About() {
 
 function Experience() {
   return (
-    <div className="p-6">
+    <div className="p-6 max-w-[700px] mx-auto">
       <div className="headline text-lg mb-1">Work &amp; Research</div>
       <div className="text-[13px] mb-4" style={{ color: 'var(--muted)' }}>The long and the short of it.</div>
       <div className="flex flex-col gap-3">
@@ -113,7 +113,7 @@ function Experience() {
 
 function Resume() {
   return (
-    <div className="p-7 prose-mac max-w-[620px]">
+    <div className="p-7 prose-mac max-w-[620px] mx-auto">
       <div className="headline text-2xl mb-1">{RESUME.title}</div>
       <p className="lead">{RESUME.summary}</p>
       <h2>Highlights</h2>
@@ -134,7 +134,7 @@ function Contact() {
     </a>
   )
   return (
-    <div className="p-7 prose-mac max-w-[560px]">
+    <div className="p-7 prose-mac max-w-[560px] mx-auto">
       <div className="headline text-2xl mb-2">Let’s talk ✉️</div>
       <p className="lead">Looking for a product designer who prototypes in code? I’m open to roles at early-stage AI startups.</p>
       <div className="mt-3 card !p-0 overflow-hidden divide-y divide-black/15">
@@ -151,7 +151,7 @@ function Blog() {
   return (
     <div>
       <FinderBar count={BLOG.length} label="Building with AI" />
-      <div className="flex flex-col">
+      <div className="flex flex-col max-w-[760px] mx-auto w-full">
         {BLOG.map((b) => (
           <a key={b.id} href={b.link} target="_blank" rel="noreferrer" className="border-b border-black/15 px-5 py-4 hover:bg-black/5 block transition-colors">
             <div className="headline text-[16px]">📰 {b.title}</div>
@@ -185,12 +185,14 @@ function ProjectDetail({ id, open }) {
   return (
     <div style={{ '--accent': p.accent }}>
       <div className="px-7 py-6" style={{ background: p.accent, color: '#151515' }}>
-        <div className="kicker opacity-80">Project · Day {p.day}</div>
-        <div className="headline text-[26px] mt-1.5">{p.emoji} {p.name}</div>
-        <div className="text-[16px] mt-2 max-w-[520px] font-medium">{p.one}</div>
-        <div className="mt-3">{p.tools.map((t) => <span key={t} className="chip">{t}</span>)}</div>
+        <div className="center-col max-w-[620px]">
+          <div className="kicker opacity-80">Project · Day {p.day}</div>
+          <div className="headline text-[26px] mt-1.5">{p.emoji} {p.name}</div>
+          <div className="text-[16px] mt-2 max-w-[520px] font-medium">{p.one}</div>
+          <div className="mt-3">{p.tools.map((t) => <span key={t} className="chip">{t}</span>)}</div>
+        </div>
       </div>
-      <div className="p-7 prose-mac max-w-[620px]">
+      <div className="p-7 prose-mac max-w-[620px] mx-auto">
         <h2>What it does</h2>
         <ol>{p.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
         <h2>Key decision</h2>
@@ -200,7 +202,7 @@ function ProjectDetail({ id, open }) {
         <h2>What was hard</h2>
         <p>{p.hard}</p>
         <h2>Screens</h2>
-        <div className="grid grid-cols-2 gap-3">{p.media.map((m) => <ImageSlot key={m.id} slot={m} base={base} open={open} />)}</div>
+        <div className="cqgrid cqgrid-2">{p.media.map((m) => <ImageSlot key={m.id} slot={m} base={base} open={open} />)}</div>
         <div className="mt-6 flex flex-wrap gap-2.5">
           {p.live && <a className="mac-btn mac-btn-primary" style={{ background: p.accent, color: '#151515' }} href={p.live} target="_blank" rel="noreferrer">▶ Live demo</a>}
           <a className="mac-btn" href={p.link} target="_blank" rel="noreferrer">📄 Build log</a>
@@ -215,7 +217,7 @@ function CaseStudies({ open }) {
   return (
     <div>
       <FinderBar count={CASE_STUDIES.length} label="Case Studies" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 p-5">
+      <div className="cqgrid cqgrid-2 p-5">
         {CASE_STUDIES.map((c) => (
           <button key={c.id} onDoubleClick={() => open('caseStudy', c.id, c.name)} className="card card-hover text-left" title="Double-click to open">
             <div className="w-9 h-6 mb-2.5 rounded" style={{ background: c.accent, border: '1.5px solid #151515' }} />
@@ -250,14 +252,16 @@ function CaseStudyDetail({ id, open }) {
     <div style={{ '--accent': c.accent }}>
       {/* HERO */}
       <div className="px-7 py-7 border-b border-black" style={{ background: c.accent, color: textOn }}>
-        <div className="kicker opacity-90">Case {c.n} · {c.name}</div>
-        <div className="headline text-[26px] sm:text-[30px] mt-2.5 max-w-[640px]">{c.hero}</div>
-        <div className="text-[15px] mt-3 max-w-[600px] font-medium" style={{ opacity: 0.94 }}>{c.lede}</div>
-        <div className="text-[12px] mt-3 pixel" style={{ opacity: 0.85 }}>{c.meta}</div>
-        <div className="mt-5 flex flex-wrap gap-2.5">
-          {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
-          {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
-          {c.links.source && <a className="mac-btn" href={c.links.source} target="_blank" rel="noreferrer">📄 Source doc</a>}
+        <div className="center-col max-w-[720px]">
+          <div className="kicker opacity-90">Case {c.n} · {c.name}</div>
+          <div className="headline text-[26px] sm:text-[30px] mt-2.5">{c.hero}</div>
+          <div className="text-[15px] mt-3 font-medium" style={{ opacity: 0.94 }}>{c.lede}</div>
+          <div className="text-[12px] mt-3 pixel" style={{ opacity: 0.85 }}>{c.meta}</div>
+          <div className="mt-5 flex flex-wrap gap-2.5">
+            {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
+            {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
+            {c.links.source && <a className="mac-btn" href={c.links.source} target="_blank" rel="noreferrer">📄 Source doc</a>}
+          </div>
         </div>
       </div>
 
@@ -289,9 +293,9 @@ function CaseStudyDetail({ id, open }) {
         {/* EXECUTIVE SUMMARY */}
         <Sec id="summary">
           <h2>Executive summary</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-start">
-            <p className="sm:col-span-3 !mb-0">{c.execSummary.challenge}</p>
-            <div className="sm:col-span-2 grid grid-cols-1 gap-2">
+          <div className="exec-grid">
+            <p className="!mb-0">{c.execSummary.challenge}</p>
+            <div className="grid gap-2">
               {c.execSummary.metrics.map((m, i) => <div key={i} className="stat"><b>{m.v}</b><span>{m.l}</span></div>)}
             </div>
           </div>
@@ -329,7 +333,7 @@ function CaseStudyDetail({ id, open }) {
         <Sec id="opportunity">
           <h2>Defining the opportunity</h2>
           <p>{c.opportunity.intro}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <div className="cqgrid cqgrid-3">
             {c.opportunity.options.map((o, i) => (
               <div key={i} className="card !p-3"><div className="font-semibold text-[13.5px]">{o.label}</div><div className="text-[12.5px] mt-1" style={{ color: 'var(--muted)' }}>{o.note}</div></div>
             ))}
@@ -374,7 +378,7 @@ function CaseStudyDetail({ id, open }) {
         {/* RESULTS */}
         <Sec id="results">
           <h2>Results</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div className="cqgrid cqgrid-4">
             {c.results.cards.map((m, i) => <div key={i} className="stat" style={{ borderColor: c.accent }}><b style={{ color: c.accent }}>{m.v}</b><span>{m.l}</span></div>)}
           </div>
           <p className="text-[13px] mt-3" style={{ color: 'var(--muted)' }}>{c.results.note}</p>
@@ -417,7 +421,7 @@ function Games({ open }) {
   return (
     <div>
       <FinderBar count={1} label="Arcade" />
-      <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      <div className="cqgrid cqgrid-2 p-5 max-w-[760px] mx-auto">
         <div className="card">
           <div className="rounded-lg mb-3 flex items-center justify-center text-5xl" style={{ background: '#0b1020', height: 120, border: '1.5px solid #151515' }}>🚀</div>
           <div className="headline text-[16px]">Artemis II — Flappy</div>

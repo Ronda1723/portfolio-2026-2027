@@ -98,7 +98,7 @@ export default function Window({ win, active, onFocus, onClose, onMinimize, onMa
           </button>
         </div>
       </div>
-      <div className="flex-1 overflow-auto mac-scroll" style={{ background: 'var(--paper)' }}>{children}</div>
+      <div className="flex-1 overflow-auto mac-scroll win-body" style={{ background: 'var(--paper)' }}>{children}</div>
       {!win.maximized && <div className="resize-handle" onMouseDown={startResize} onTouchStart={startResize} />}
     </motion.div>
   )

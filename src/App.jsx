@@ -141,13 +141,14 @@ export default function App() {
 
   const topZ = Math.max(0, ...wins.filter((w) => !w.minimized).map((w) => w.z))
   const minimized = wins.filter((w) => w.minimized)
+  const anyMax = wins.some((w) => w.maximized && !w.minimized)
 
   return (
     <div className={`${theme === 'dark' ? 'theme-dark' : ''} ${crt ? 'crt' : ''} w-full h-full`}>
       {!booted && <BootScreen onDone={() => setBooted(true)} />}
 
       <div className="desktop-bg w-full h-full relative overflow-hidden">
-        <div className="desktop-watermark">samita<br/>OS</div>
+        {!anyMax && <div className="desktop-watermark">samita<br/>OS</div>}
         <MenuBar
           onOpen={open}
           theme={theme}
@@ -160,8 +161,8 @@ export default function App() {
           onSearch={() => setSpotlight(true)}
         />
 
-        {/* Draggable desktop icons */}
-        {DESKTOP_ICONS.map((ic) => (
+        {/* Draggable desktop icons — hidden when a window is maximized */}
+        {!anyMax && DESKTOP_ICONS.map((ic) => (
           <DesktopIcon key={ic.id} icon={ic} pos={iconPos[ic.id]} onDragStart={(e) => dragIcon(ic.id, e)} onOpen={() => open(ic.type)} />
         ))}
 
@@ -178,13 +179,15 @@ export default function App() {
         </AnimatePresence>
 
         {/* Trash */}
-        <button className="absolute bottom-3 right-4 z-[100] flex flex-col items-center gap-1 group" onDoubleClick={() => { sfx.trash(); open('trash') }} title="Double-click to open Trash">
-          <span className="text-4xl icon-emoji">🗑️</span>
-          <span className="text-[11px] px-1 pixel" style={{ background: 'var(--cream)' }}>Trash</span>
-        </button>
+        {!anyMax && (
+          <button className="absolute bottom-3 right-4 z-[100] flex flex-col items-center gap-1 group" onDoubleClick={() => { sfx.trash(); open('trash') }} title="Double-click to open Trash">
+            <span className="text-4xl icon-emoji">🗑️</span>
+            <span className="text-[11px] px-1 pixel" style={{ background: 'var(--cream)' }}>Trash</span>
+          </button>
+        )}
 
         {/* Dock for minimized */}
-        {minimized.length > 0 && (
+        {!anyMax && minimized.length > 0 && (
           <div className="absolute bottom-3 left-3 z-[150] flex gap-2 items-end" style={{ marginLeft: 64 }}>
             {minimized.map((win) => (
               <button key={win.key} className="mac-window px-2 py-1 text-[12px] font-semibold bouncing" onClick={() => { sfx.open(); focus(win.key) }} title="Restore">
@@ -194,7 +197,7 @@ export default function App() {
           </div>
         )}
 
-        <Mascot />
+        {!anyMax && <Mascot />}
 
         {spotlight && <Spotlight onOpen={open} onClose={() => setSpotlight(false)} />}
         {saver && <Screensaver onWake={() => { lastActivity.current = Date.now(); setSaver(false) }} />}
