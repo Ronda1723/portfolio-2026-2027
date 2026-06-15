@@ -202,6 +202,28 @@ body {
 .bubble::after { content: ''; position: absolute; bottom: -9px; left: 18px; border-width: 9px 9px 0; border-style: solid; border-color: var(--border) transparent transparent; }
 .bubble::before { content: ''; position: absolute; bottom: -6px; left: 19px; z-index: 1; border-width: 8px 8px 0; border-style: solid; border-color: var(--paper) transparent transparent; }
 
+/* ---------- Pixel scene diorama ---------- */
+.pixel-scene {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  right: clamp(96px, 8vw, 150px);
+  width: clamp(300px, 40vw, 460px); aspect-ratio: 280 / 210;
+  z-index: 2; pointer-events: none;
+  border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 7px 9px 0 rgba(21,21,21,0.12), 0 16px 36px rgba(21,21,21,0.16);
+  background: #7cbf57;
+}
+.pixel-scene canvas {
+  width: 100%; height: 100%; display: block;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+}
+.pixel-scene-label {
+  position: absolute; left: 8px; bottom: 6px; font-size: 9px; letter-spacing: 0.04em;
+  color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,0.5); opacity: 0.85;
+}
+@media (max-width: 760px) {
+  .pixel-scene { right: 50%; transform: translate(50%, -50%); top: 38%; width: min(78vw, 360px); opacity: 0.96; }
+}
+
 /* ---------- misc ---------- */
 .icon-emoji { image-rendering: auto; }
 @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }

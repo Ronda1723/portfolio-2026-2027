@@ -7,6 +7,7 @@ import WindowContent from './components/WindowContent.jsx'
 import Spotlight from './components/Spotlight.jsx'
 import Mascot from './components/Mascot.jsx'
 import Screensaver from './components/Screensaver.jsx'
+import PixelScene from './components/PixelScene.jsx'
 import { DESKTOP_ICONS } from './data/content.js'
 import { sfx, setMuted as setSfxMuted, resumeAudio } from './lib/sound.js'
 
@@ -148,6 +149,7 @@ export default function App() {
 
       <div className="desktop-bg w-full h-full relative overflow-hidden">
         <div className="desktop-watermark">samita<br/>OS</div>
+        {booted && <PixelScene />}
         <MenuBar
           onOpen={open}
           theme={theme}
