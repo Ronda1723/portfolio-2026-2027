@@ -40,49 +40,75 @@ export const CASE_STUDIES = [
     meta: 'Personal projects · Hackathons across SF · 2026 · Solo designer-developer',
     accent: '#f7a501', accentText: '#2a241e',
     hero: "I don't wireframe AI interfaces — I build them. Eight tools shipped in eight days.",
-    lede: "A public 60-day building challenge that turned a designer who'd never shipped code into someone who prototypes AI products end-to-end — and got noticed for it.",
-    stats: [
-      { v: '8', l: 'tools shipped' },
-      { v: '8', l: 'days' },
-      { v: '1', l: 'job lead (Day 3)' },
-      { v: '12+', l: 'tools / APIs learned' },
-    ],
+    lede: "A public building challenge that turned a designer who'd never shipped code into someone who prototypes AI products end-to-end — and got noticed for it.",
     links: { medium: null, live: 'https://decode--samitaprakash.replit.app', source: `${GH}/vibe-coding/vibe-coding-showcase-source-of-truth.md` },
-    heroImg: { id: 'hero', label: 'Montage / hero still', w: 1600, h: 900 },
-    overview: {
-      problem:
-        "I'm a product designer with an HCI Master's — and until March 2026, I had never shipped a line of code. In a market where AI startups want designers who can sit in the codebase with engineers, that was a gap. Wireframes weren't going to prove I could build. So I made a public commitment on X: ship a new, working AI tool every couple of days, in the open, and write down what I learned. No tutorials-for-show — real tools solving real problems I personally had.",
-      insight: {
-        quote: "AI interfaces can't be designed statically. The feel of a voice interaction, the pacing of a streamed response, the trust signals in an agent's output — these only become real when you build them.",
-        by: 'The thesis of the whole challenge',
-      },
-      context:
-        "Each build paired a real personal pain with exactly one new technical concept to learn: APIs (Maison), how models differ (Decode), databases (Loop), real-time voice + OAuth (Ponder), combining skills (Prep), browser extensions (Loop Capture), and game loops (Artemis). Eight days, eight concepts, eight shipped things — and a body of proof that grows in public.",
+    snapshot: {
+      role: 'Designer & builder (solo)',
+      duration: '~6 weeks · ongoing',
+      team: 'Solo — design, build, ship, write-up',
+      company: 'Personal · in public on X',
+      impact: ['8 AI tools shipped', 'Inbound job lead from Day 3', 'Featured by the Smallest.ai team'],
+      summary: '"Taught myself to ship AI interfaces by building eight working tools in public — and turned it into real conversations."',
     },
-    decisions: [
-      { title: 'Build to think, not to demo', body: "Every project forced a real interaction-design decision in the first hour — not color or layout, but how a human should meet AI output. When should the system speak versus display text? When does a loading state need to feel like thinking rather than just waiting? When does more information help, and when does it overwhelm? Those questions don't surface in Figma; they surface the moment you wire up a real API and feel the latency.", img: { id: 'decision-1', label: 'Annotated UI decision', w: 1200, h: 800 } },
-      { title: 'Iteration over perfection', body: "First-generation AI output is never right. Rather than chase a perfect first answer, I designed for cheap correction. The re-prompt box in Prep (\"no rice, something quicker\"), the always-visible side-by-side in Decode, the editable pre-fill in Loop Capture — three different shapes of the same principle: give people a low-friction way to refine, and the imperfect first output stops mattering." },
-      { title: 'Meet people inside their existing workflow', body: "Loop as a standalone app is fine. Loop plus a Chrome extension that lives inside the LinkedIn profile you're already looking at is genuinely useful. The best AI tools don't ask you to come to them — they show up where you already are. That's why Day 7 extended Day 4 instead of starting something new." },
-      { title: 'Treat emotional state as a real input', body: "Haru asks how you feel before it plans your day, and 'overwhelmed' actually reduces the task count and widens time buffers — not just the color scheme. Ponder returns a one-word mood alongside your action items. Emotion isn't decoration here; it's functional data that changes what the interface does." },
-    ],
-    gallery: [
-      { id: 'ponder', label: 'Ponder — voice → structured output', w: 900, h: 1600, caption: 'Ponder: hold-to-talk voice brain dump' },
-      { id: 'decode', label: 'Decode — side-by-side models', w: 1600, h: 1000, caption: 'Decode: GPT-4o vs Claude, same prompt' },
-      { id: 'haru', label: 'Haru — mood → day plan', w: 900, h: 1600, caption: 'Haru: mood-first daily planner' },
-      { id: 'loop-capture', label: 'Loop Capture — Chrome extension', w: 1200, h: 900, caption: 'Loop Capture: LinkedIn → follow-up' },
-    ],
-    process: {
-      steps: ['Pick a real personal pain', 'Choose one new concept', 'Build in ~3 hours', 'Ship + post on X', 'Log the decisions'],
-      artifacts: [{ id: 'x-posts', label: 'X posts + engagement grid', w: 1400, h: 900, caption: 'Building in public, every day' }],
-      role: 'Solo — ideation, design, build, ship, and write-up for all eight. No team, no handoff; just a designer with an idea in the morning and a working, deployed tool by the evening.',
-      outcome:
-        "The challenge worked as proof. A founder DMed me on X the day I posted Decode, asking to meet about a role. The Smallest.ai team reposted Ponder after their hackathon. Decode is live and usable at a public URL. More importantly, the body of work shows — not tells — that I can take a feature from a vague idea to a shipped, working AI interface in hours, and explain every decision along the way.",
-      learnings: [
-        'The strongest ideas came from genuine personal pain — the weakest from building “to learn a concept” in the abstract.',
-        'Voice input isn’t a gimmick; for brain-dumps and quick capture it’s the difference between doing the thing and not.',
-        'Shipping in public compounds — each post built an audience that turned into real conversations and a job lead.',
+    heroImg: { id: 'hero', label: 'Montage / hero still of the tools', w: 1600, h: 900 },
+    execSummary: {
+      challenge: "As a designer who had never shipped code, I needed to prove I could build AI products — not just mock them up. The risk: spend weeks polishing one thing nobody sees, or ship small and often in public and learn what actually resonates.",
+      metrics: [{ v: '8', l: 'tools shipped in 8 days' }, { v: '12+', l: 'APIs & tools learned' }, { v: '1', l: 'inbound job lead' }],
+    },
+    execImg: { id: 'exec', label: 'Before → after: empty Figma vs. shipped, live tools', w: 1200, h: 800 },
+    problem: {
+      intro: "For the roles I want — product design at early-stage AI startups — a Figma portfolio isn't enough. Teams need designers who can sit in the codebase with engineers.",
+      quote: 'AI interfaces can’t be designed statically — the feel only becomes real when the thing runs.',
+      bullets: ['Static mockups can’t show the feel of a voice or streamed AI interaction.', '“Designs by building” is easy to claim and hard to prove.', 'Learning in private produces no signal and no audience.'],
+      note: "If nothing changed, I'd keep being read as “just a designer” in a market that rewards builders.",
+    },
+    problemImg: { id: 'problem', label: 'Concept map: why static mockups fall short for AI', w: 1400, h: 900 },
+    understanding: {
+      intro: 'Across eight builds, three patterns made the difference between a tool that felt alive and one that felt like a demo.',
+      themes: [
+        { title: 'Latency is a design material', body: 'You can’t design a streamed response in a static frame — pacing and “thinking” states only become real wired to a live API.' },
+        { title: 'Iteration beats first-output', body: 'AI is wrong on the first try; cheap correction (re-prompt, compare, edit) matters more than a perfect answer.' },
+        { title: 'Tools should live where you already are', body: 'The most useful builds extended an existing workflow instead of asking people to come to a new app.' },
       ],
     },
+    synthesisImg: { id: 'synthesis', label: 'Synthesis board — patterns across the 8 builds', w: 1500, h: 950 },
+    opportunity: {
+      intro: 'Three ways to run the challenge:',
+      options: [
+        { label: 'Option A — one big polished app', note: 'Most impressive single artifact, slowest signal.' },
+        { label: 'Option B — many small shipped tools, in public', note: 'Fastest learning + audience. Chosen.' },
+        { label: 'Option C — tutorials / clones', note: 'Lowest risk, weakest proof.' },
+      ],
+      chosen: 'I chose B: ship a real, personal-pain tool every couple of days and write down the decision behind each.',
+    },
+    opportunityImg: { id: 'opportunity', label: 'Tradeoff sketch: impact vs. speed of signal', w: 1400, h: 850 },
+    decisions: [
+      { title: 'Build to think, not to demo', body: 'Every project forced a real interaction decision in the first hour — when should the system speak vs. display, when should a loading state feel like thinking. Those surface only when you feel the real latency.', img: { id: 'decision-1', label: 'Annotated interaction decision', w: 1200, h: 850 } },
+      { title: 'Design for cheap iteration', body: 'The re-prompt box (Prep), the always-visible compare (Decode), the editable pre-fill (Loop Capture) — three shapes of one idea: give people a low-friction way to refine.', img: { id: 'decision-2', label: 'Re-prompt / compare patterns', w: 1200, h: 850 } },
+      { title: 'Meet people inside their workflow', body: 'Loop as an app is fine; Loop as a Chrome extension living inside the LinkedIn profile you’re already on is genuinely useful. Day 7 extended Day 4 on purpose.', img: { id: 'decision-3', label: 'Loop → Loop Capture ecosystem', w: 1200, h: 850 } },
+    ],
+    collaboration: {
+      body: 'A solo build, but never in a vacuum — the “team” was the audience, in public, every day.',
+      points: ['Posted every build with the honest hard parts, not just the wins.', 'Replies from founders and engineers directly shaped later builds.', 'A founder’s DM after Day 3 (Decode) turned the feed into a real conversation about a role.'],
+    },
+    collabImg: { id: 'collab', label: 'X thread + replies from founders/engineers', w: 1400, h: 900 },
+    launch: {
+      title: 'Shipping in public',
+      intro: 'Each tool followed the same tight release loop:',
+      phases: [{ label: 'Build', note: '~3 hrs, one new concept' }, { label: 'Ship', note: 'deploy + record a demo' }, { label: 'Post', note: 'X write-up with the decision' }],
+    },
+    launchImg: { id: 'launch', label: 'Timeline of the 8 daily ships', w: 1500, h: 520 },
+    results: {
+      cards: [{ v: '8', l: 'tools shipped' }, { v: '1', l: 'job lead (Day 3)' }, { v: 'Live', l: 'public demo — Decode' }, { v: 'Repost', l: 'by the Smallest.ai team' }],
+      note: 'Qualitative by design — the goal was proof and signal, not product metrics.',
+    },
+    resultsImg: { id: 'results', label: 'Engagement grid across the daily posts', w: 1500, h: 900 },
+    learnings: [
+      'The strongest ideas came from genuine personal pain — the weakest from building “to learn a concept”.',
+      'Voice input isn’t a gimmick; for capture it’s the difference between doing the thing and not.',
+      'Shipping in public compounds — each post built an audience that became real conversations.',
+    ],
+    reflection: "I'd add lightweight analytics from day one to see which tools people actually opened, and turn the two strongest (Loop, Ponder) into maintained products rather than demos.",
   },
   {
     id: 'skan-ai', n: '02', name: 'Skan AI',
@@ -90,46 +116,75 @@ export const CASE_STUDIES = [
     meta: 'Skan AI · Menlo Park, CA · Aug–Nov 2025 · Contract, working directly with the founder',
     accent: '#2d89c7',
     hero: 'AI agents are invisible by default. My job was to make them understandable.',
-    lede: "An enterprise AI startup needed to pitch a Large Process Model to investors. I translated 49 technical concepts into a deck that went into the room with Insight Partners.",
-    stats: [
-      { v: '1', l: 'Insight Partners pitch' },
-      { v: '41', l: 'slides in 48 hrs' },
-      { v: '49+', l: 'concepts / diagram' },
-      { v: '50+', l: 'slides redesigned' },
-    ],
+    lede: 'An enterprise AI startup needed to pitch a Large Process Model to investors. I translated 49 technical concepts into a deck that went into the room with Insight Partners.',
     links: { medium: null, live: null, source: `${GH}/skan-ai/skan-ai-source-of-truth.md` },
-    heroImg: { id: 'hero', label: 'Abstracted hero visual (NDA-safe)', w: 1600, h: 900 },
-    overview: {
-      problem:
-        "Skan AI builds agentic process intelligence for the Fortune 500. Their core technology is a Large Process Model — a multimodal vision-language system that learns enterprise workflows by watching how humans do them, then deploys AI agents to do the same work, with self-correction and KPI-driven optimization. The technology is genuinely deep. But the people who needed to understand it — investors, enterprise buyers, partners — needed to get it in 30 seconds, not 30 minutes. The pitch slides looked like engineering schematics: dense, accurate, hierarchical, and impossible to parse at a glance. The story was buried under the very complexity that made it worth telling.",
-      insight: { quote: 'Same information, different audience. That is the entire job.', by: 'The translation problem, in one line' },
-      context:
-        "I came in as the sole designer across two engagements: first a comprehensive redesign of the founder's pitch deck, then a rebuild of the investor deck used in a real pitch to Insight Partners. This is the only paid AI work in my portfolio and the proof point that the rest of it translates to a real company with real stakes. The work is under NDA, so it's shown here as abstracted principles rather than literal slides.",
+    snapshot: {
+      role: 'Product / visual designer (contract)',
+      duration: '~3 months (Aug–Nov 2025)',
+      team: 'Direct with the founder + a second stakeholder',
+      company: 'Skan AI · Menlo Park, CA',
+      impact: ['Deck used in an Insight Partners pitch', '41 investor-ready slides in 48 hrs', 'Return engagement secured'],
+      summary: '"Translated a Large Process Model’s architecture into investor-ready slides — the deck went into a real Insight Partners pitch."',
     },
-    decisions: [
-      { title: 'Workflow as narrative, not architecture', body: "Engineers default to architecture diagrams — boxes and arrows showing what's inside the system. But a stakeholder doesn't need to know what's inside; they need to know what it does for them. I reframed the schematics as sequential narratives: first the agent observes X, then it recognizes Y, then it recommends Z. Same information, completely different framing — and suddenly a slide that took five minutes to decode reads in ten seconds.", img: { id: 'decision-1', label: 'Narrative reframing diagram', w: 1400, h: 800 } },
-      { title: 'Editability is a deliverable, not a nicety', body: "The founder's rule was explicit: never flatten, never group, never join images so they can't be edited. Every slide shipped as fully separable elements he could re-type, re-layout, and animate minutes before walking into a room. It sounds like a boring constraint; it's actually what lets a founder trust a designer at pitch speed." },
-      { title: 'Push back when the data lies', body: "On the ACV growth chart, showing the 110M figure to-scale would have visually erased every historical number that built the story. I flagged it and proposed scaling only through 2025 instead. That's the difference between a contractor who executes and a collaborator a founder keeps coming back to — design judgment, offered before being asked." },
-      { title: 'Translate without dumbing down', body: "Multimodal VLMs, GRPO-based reasoning pretraining, LLM-as-judge evaluation, exception handling — I didn't need to build any of it, but I had to preserve every technical term and connector relationship while making the whole thing legible. Forty-nine concepts in a single diagram stayed accurate and became readable. Accuracy was the constraint; legibility was the deliverable." },
-    ],
-    gallery: [
-      { id: 'maturity-model', label: 'Customer maturity model (5-stage)', w: 1600, h: 700, caption: 'Process Excellence → Agentic AI' },
-      { id: 'architecture', label: 'Architecture diagram → editable slide', w: 1600, h: 1000, caption: '49 concepts, made legible' },
-      { id: 'iconography', label: 'Custom agent-action iconography', w: 1200, h: 800, caption: 'A consistent visual language across 50+ slides' },
-    ],
-    beforeAfter: { label: 'The translation', before: { id: 'before', label: 'Engineering schematic (dense)', w: 1200, h: 800 }, after: { id: 'after', label: 'Investor narrative (clear)', w: 1200, h: 800 } },
-    process: {
-      steps: ['Raw Draw.io / 19-slide deck', 'Restructure the narrative', 'Rebuild + custom iconography', 'Founder review', 'Insight Partners deck — 41 slides'],
-      artifacts: [{ id: 'timeline', label: '24-hour turnaround timeline', w: 1400, h: 500, caption: 'Raw materials → investor-ready in two days' }],
-      role: "Sole designer, working async and direct with the founder (Avinash Misra) and Manish Garg — WhatsApp, Zoom, tight feedback loops, no committees. I matched the founder's working style: brief, fast, action-oriented. The hardest single task was converting four dense Draw.io architecture SVGs into editable, professional PowerPoint slides while renaming every “Large Action Model” to “Large Process Model” without breaking a single relationship.",
-      outcome:
-        "The deck I designed went into a real pitch meeting with Insight Partners — one of the most prominent venture firms in enterprise software. Forty-one investor-ready slides, from raw materials to delivered, in 48 hours. The founder kept coming back; the engagement opened a second body of work, and the door is still open. The metric that matters isn't hours billed — it's that real work, for a real company, went into the room with investors.",
-      learnings: [
-        'The same AI capability reads as “powerful” or “confusing” depending entirely on how it’s presented.',
-        'Making complex systems legible to non-technical decision-makers is the core skill of AI product design.',
-        'Speed and quality aren’t opposites at this scale of work — they’re the same thing.',
+    heroImg: { id: 'hero', label: 'Abstracted hero visual (NDA-safe)', w: 1600, h: 900 },
+    execSummary: {
+      challenge: 'Skan’s technology is genuinely deep, but investors needed to grasp it in 30 seconds. The pitch slides read like engineering schematics — accurate, dense, and impossible to parse at a glance — so the story was lost under the complexity that made it worth telling.',
+      metrics: [{ v: '49+', l: 'concepts in one diagram' }, { v: '48 hrs', l: 'to a 41-slide deck' }, { v: '50+', l: 'slides redesigned' }],
+    },
+    beforeAfter: { label: 'Engineering schematic → investor narrative', before: { id: 'before', label: 'Dense engineering schematic', w: 1200, h: 800 }, after: { id: 'after', label: 'Clear investor narrative', w: 1200, h: 800 } },
+    problem: {
+      intro: 'For a fundraising company the deck isn’t decoration — it’s the instrument. If investors can’t follow the story in seconds, the round gets harder.',
+      quote: 'Same information, different audience. That is the entire job.',
+      bullets: ['Architecture slides looked like engineering docs, not a narrative.', 'The strongest proof points were buried under technical density.', 'Every edit risked breaking the founder’s ability to iterate live.'],
+      note: 'If nothing changed, a strong technology would keep under-selling itself in the room.',
+    },
+    problemImg: { id: 'problem', label: 'Comprehension funnel (NDA-safe, abstracted)', w: 1400, h: 900 },
+    understanding: {
+      intro: 'Working directly with the founder, three things became clear about what the deck needed.',
+      themes: [
+        { title: 'Comprehension in seconds', body: 'Investors needed the “what it does for me” before the “how it works”.' },
+        { title: 'Accuracy is non-negotiable', body: '49+ real technical concepts had to stay correct — legible, never dumbed down.' },
+        { title: 'Live editability', body: 'The founder edits up to the moment he walks in; nothing could be flattened or grouped.' },
       ],
     },
+    synthesisImg: { id: 'synthesis', label: 'Notes from founder feedback loops', w: 1500, h: 950 },
+    opportunity: {
+      intro: 'Three directions for the work:',
+      options: [
+        { label: 'Option A — light cleanup', note: 'Fastest, but schematics stay schematics.' },
+        { label: 'Option B — narrative rebuild + editable architecture', note: 'Highest impact. Chosen.' },
+        { label: 'Option C — net-new visual system', note: 'Most polished, too slow for the pitch timeline.' },
+      ],
+      chosen: 'We chose B: reframe workflows as narrative and convert the dense diagrams into fully editable, professional slides.',
+    },
+    opportunityImg: { id: 'opportunity', label: 'Scope tradeoff: impact vs. timeline', w: 1400, h: 850 },
+    decisions: [
+      { title: 'Workflow as narrative, not architecture', body: 'Stakeholders don’t need what’s inside the system; they need what it does for them. I reframed boxes-and-arrows into sequences: first the agent observes X, then recognizes Y, then recommends Z.', img: { id: 'decision-1', label: 'Narrative reframing diagram', w: 1400, h: 800 } },
+      { title: 'Editability is a deliverable', body: 'Every slide shipped as separable elements — no flattened images, no grouped objects — so the founder could re-type, re-layout, and animate minutes before a pitch.', img: { id: 'decision-2', label: 'Editable element breakdown', w: 1400, h: 800 } },
+      { title: 'Push back when the data lies', body: 'A to-scale ACV chart would have visually erased the historical numbers that built the story. I flagged it and proposed scaling only through 2025 — judgment offered before being asked.', img: { id: 'decision-3', label: 'ACV chart, rescaled', w: 1400, h: 800 } },
+    ],
+    collaboration: {
+      body: 'Async and direct — WhatsApp, Zoom, terse feedback, fast loops. I matched the founder’s brisk, action-oriented style.',
+      points: ['Tight feedback loops: one change at a time, confirmed before moving on.', 'Pushed back on the ACV chart and proposed a clearer alternative.', 'Handed off to a second stakeholder “on priority” — a direct trust signal.'],
+    },
+    collabImg: { id: 'collab', label: 'Founder feedback thread (abstracted)', w: 1400, h: 900 },
+    launch: {
+      title: 'Delivery',
+      intro: 'The work shipped in tight, high-stakes passes:',
+      phases: [{ label: 'Pass 1', note: 'Pitch-deck redesign with the founder' }, { label: 'Pass 2', note: '4 architecture SVGs → editable slides' }, { label: 'Pass 3', note: 'Insight Partners deck — 41 slides / 48 hrs' }],
+    },
+    launchImg: { id: 'launch', label: '24-hour turnaround timeline', w: 1500, h: 520 },
+    results: {
+      cards: [{ v: 'Insight', l: 'Partners pitch used the deck' }, { v: '48 hrs', l: 'raw → 41 slides' }, { v: '49+', l: 'concepts made legible' }, { v: 'Open', l: 'door for more work' }],
+      note: 'Under NDA — shown as abstracted principles. The metric that matters is the named outcome, not hours billed.',
+    },
+    resultsImg: { id: 'results', label: 'Before/after slide pair (abstracted)', w: 1500, h: 900 },
+    learnings: [
+      'The same AI capability reads as “powerful” or “confusing” depending entirely on presentation.',
+      'Making complex systems legible to non-technical decision-makers is the core skill of AI product design.',
+      'At this scale of work, speed and quality are the same thing, not opposites.',
+    ],
+    reflection: "I'd close the loop by asking for the funding outcome, and propose a small reusable slide system so the founder isn't dependent on me for the next deck.",
   },
   {
     id: 'playwise', n: '03', name: 'Playwise',
@@ -137,45 +192,75 @@ export const CASE_STUDIES = [
     meta: 'INST776 Capstone · UMD · 2024–2025 · Client: Dr. Caro Williams-Pierce · Team of 5',
     accent: '#4e9130',
     hero: 'Canvas is “awful and inexcusable” for play-based learning. A real professor said that. So we designed the replacement.',
-    lede: "A two-semester, five-sprint capstone designing a mobile-first Learning Management System for the Read-Watch-Play pedagogy — for a real client, ending in a development-ready handoff.",
-    stats: [
-      { v: '5', l: 'sprints' },
-      { v: '2', l: 'user types' },
-      { v: '9+', l: 'courses use RWP' },
-      { v: '1', l: 'client handoff' },
-    ],
+    lede: 'A two-semester, five-sprint capstone designing a mobile-first LMS for the Read-Watch-Play pedagogy — for a real client, ending in a development-ready handoff.',
     links: { medium: null, live: null, source: `${GH}/playwise/playwise-source-of-truth.md` },
-    heroImg: { id: 'hero', label: 'Student + instructor views side by side', w: 1600, h: 900 },
-    overview: {
-      problem:
-        "Read-Watch-Play (RWP) is a pedagogy created by Dr. Caro Williams-Pierce at the University of Maryland. It restructures a course week into three phases — Read (engage with material), Watch (observe demonstrations), and Play (hands-on experimentation, worth 3× the points). It treats failure as informative, gives students autonomy, and makes play serious learning even in rigorous STEM courses. 9+ courses at UMD run on it. The problem: Canvas was never built for it. It's linear, rigid, and grade-focused, so instructors hack it together — building Miro boards, Figma files, and external playlists just to plan a single week.",
-      insight: { quote: '"I am a visual planner and Canvas doesn’t support this. I always have to create Miro boards, Figma, and outsource. Grading is awful and inexcusable — I can’t see one student’s submissions in one place."', by: 'Prof. Anat Sevilla, RWP instructor (interview notes I took)' },
-      context:
-        "This was a real client engagement, not a class exercise — Dr. Caro has real courses running RWP, and our work was handed off for development. Across five sprints we ran the full design lifecycle for two distinct-but-equivalent user types, coordinating with a parallel Master of Information Management team handling the database and backend. It's the most complete end-to-end project in my portfolio.",
+    snapshot: {
+      role: 'Primary designer (capstone)',
+      duration: '2 semesters · 5 sprints (2024–2025)',
+      team: 'Team of 5 + parallel technical (MIM) team',
+      company: 'UMD capstone · Client: Dr. Caro Williams-Pierce',
+      impact: ['Development-ready handoff delivered', 'Student + instructor views designed', 'Brand identity (“Playwise”) created'],
+      summary: '"Designed a mobile-first LMS for the Read-Watch-Play pedagogy across five sprints, ending in a development-ready handoff."',
     },
-    decisions: [
-      { title: 'Mobile-first — for an LMS', body: "Every other LMS assumes a desktop. But students actually engage with course material on their phones — between classes, on the commute, in bed before sleep. RWP's three clear phases map unusually well to a phone because they reduce a week down to three legible actions. Designing mobile-first wasn't a constraint here; it matched how students really learn.", img: { id: 'decision-1', label: 'Mobile R-W-P navigation', w: 900, h: 1600 } },
-      { title: 'Two experiences, one product', body: "A core RWP principle is that students and instructors should have equivalent experiences. That created a real design tension — an instructor needs planning, content creation, and grading; a student needs navigation, submission, and progress. We designed both views simultaneously so a grading interface and a learning interface still feel like the same product." },
-      { title: 'Visual planning, built in', body: "The most unexpected research finding was that the instructors' biggest pain wasn't the student-facing side — it was course creation. Prof. Anat was outsourcing planning to Miro and Figma every single week. So we made non-linear, visual course planning native to the LMS, and it changed the project's direction." },
-    ],
-    gallery: [
-      { id: 'rwp-cycle', label: 'Read · Watch · Play (1-1-3 pts)', w: 1600, h: 700, caption: 'The pedagogy, mapped to the UI' },
-      { id: 'student', label: 'Student view — quests & XP', w: 900, h: 1600, caption: 'Choose-Your-Own assignments, gamified progress' },
-      { id: 'instructor', label: 'Instructor view — visual planner', w: 1400, h: 1000, caption: 'Plan a week without leaving the LMS' },
-    ],
-    beforeAfter: { label: 'Canvas → Playwise', before: { id: 'before', label: 'Canvas, hacked for RWP', w: 1200, h: 800 }, after: { id: 'after', label: 'Playwise, purpose-built', w: 1200, h: 800 } },
-    process: {
-      steps: ['Background research', 'Stakeholder interviews', 'Competitive analysis', 'Personas & journeys', 'Lo-fi → hi-fi', 'User testing', 'Client handoff'],
-      artifacts: [{ id: 'journey-map', label: 'Journey map / persona', w: 1400, h: 900, caption: 'Research artifacts from the empathize sprint' }],
-      role: "Primary designer on a five-person team. I owned the client requirements document (the foundational scope doc), facilitated and took notes for the key stakeholder interviews, coordinated the cross-team meeting with the technical MIM team, created the “Playwise” visual identity and brand, and built the hi-fi mobile-first prototypes for both the student and instructor views.",
-      outcome:
-        "We delivered a development-ready design system and functional mobile-first prototypes across five sprints, with a formal handoff to Dr. Caro, the co-PI professors, and the parallel technical team. The deliverable wasn't a class project that ends at the critique — it was a design built to be implemented for courses real students take.",
-      learnings: [
-        'Designing for a pedagogy, not a feature list, means translating a teaching philosophy into interaction patterns.',
-        'The richest insight came from a stakeholder’s pain we didn’t expect — planning, not delivery.',
-        '“Equivalent but different” experiences for two user types is a genuinely hard, rewarding design problem.',
+    heroImg: { id: 'hero', label: 'Student + instructor views side by side', w: 1600, h: 900 },
+    execSummary: {
+      challenge: 'Read-Watch-Play runs 9+ courses at UMD, but Canvas was never built for it. Instructors hack together Miro, Figma, and Canvas to plan a single week, and students fight rigid, linear navigation.',
+      metrics: [{ v: '5', l: 'sprints' }, { v: '2', l: 'user types' }, { v: '9+', l: 'courses use RWP' }],
+    },
+    beforeAfter: { label: 'Canvas, hacked → Playwise, purpose-built', before: { id: 'before', label: 'Canvas hacked for RWP', w: 1200, h: 800 }, after: { id: 'after', label: 'Playwise, purpose-built', w: 1200, h: 800 } },
+    problem: {
+      intro: 'When the pedagogy is great but the platform fights it, the work falls on instructors — and the experience degrades for everyone.',
+      quote: '"Grading is awful and inexcusable. I always have to outsource to Miro and Figma." — Prof. Anat Sevilla',
+      bullets: ['Instructors outsourced course planning to external tools every week.', 'Grading was scattered — no single view of one student’s work.', 'Students valued RWP’s clarity but struggled with Canvas’s rigidity.'],
+      note: 'Left unchanged, RWP’s adoption stays capped by the platform’s friction.',
+    },
+    problemImg: { id: 'problem', label: 'Instructor journey map (planning pain)', w: 1400, h: 900 },
+    understanding: {
+      intro: 'Through stakeholder interviews, a student focus group, and competitive analysis, three themes emerged.',
+      themes: [
+        { title: 'Planning is the real pain', body: 'The biggest friction wasn’t the student app — it was course creation.' },
+        { title: 'Students learn on phones', body: 'Materials are consumed between classes and before bed, not at a desk.' },
+        { title: 'Equivalent, not identical', body: 'RWP asks for equivalent student/instructor experiences with different jobs.' },
       ],
     },
+    synthesisImg: { id: 'synthesis', label: 'Affinity map / persona board', w: 1500, h: 950 },
+    opportunity: {
+      intro: 'Three directions, scoped with the client:',
+      options: [
+        { label: 'Option A — student app only', note: 'Fastest, ignores the real pain.' },
+        { label: 'Option B — both views + native visual planning', note: 'Highest impact. Chosen.' },
+        { label: 'Option C — a Canvas plugin', note: 'Lowest effort, inherits Canvas’s limits.' },
+      ],
+      chosen: 'We chose B: design both views mobile-first, with visual course planning built into the platform.',
+    },
+    opportunityImg: { id: 'opportunity', label: 'Opportunity map with the client', w: 1400, h: 850 },
+    decisions: [
+      { title: 'Mobile-first — for an LMS', body: 'Students engage on phones between classes and before bed. RWP’s three clear phases reduce a week to three legible actions, which works unusually well on mobile.', img: { id: 'decision-1', label: 'Mobile R-W-P navigation', w: 900, h: 1600 } },
+      { title: 'Two experiences, one product', body: 'Students and instructors should have equivalent experiences. We designed both views together so a grading interface and a learning interface still feel like the same product.', img: { id: 'decision-2', label: 'Student vs instructor parity', w: 1400, h: 950 } },
+      { title: 'Visual planning, built in', body: 'Responding to the planning pain, we made non-linear, visual course planning native to the LMS — no more weekly tool-switching to Miro and Figma.', img: { id: 'decision-3', label: 'Native visual course planner', w: 1400, h: 950 } },
+    ],
+    collaboration: {
+      body: 'A five-person design team, a parallel technical (MIM) team, and a real client over two semesters.',
+      points: ['Owned the client requirements doc that scoped the whole project.', 'Coordinated design with the MIM team so XP/quest features stayed feasible.', 'Ran feedback loops with Dr. Caro and co-PI professors each sprint.'],
+    },
+    collabImg: { id: 'collab', label: 'Cross-team coordination board', w: 1400, h: 900 },
+    launch: {
+      title: 'Rollout & Handoff',
+      intro: 'Five sprints, empathize → handoff:',
+      phases: [{ label: 'Sprints 1–2', note: 'Research, IA, lo-fi' }, { label: 'Sprints 3–4', note: 'Hi-fi, design system, brand' }, { label: 'Sprint 5', note: 'Testing + dev-ready handoff' }],
+    },
+    launchImg: { id: 'launch', label: '5-sprint timeline', w: 1500, h: 520 },
+    results: {
+      cards: [{ v: '5', l: 'sprints delivered' }, { v: '2', l: 'views handed off' }, { v: 'Dev-ready', l: 'design system' }, { v: '9+', l: 'courses on RWP' }],
+      note: 'An academic client project — outcomes are deliverables and handoff readiness, not production metrics.',
+    },
+    resultsImg: { id: 'results', label: 'Final hi-fi screens', w: 1500, h: 900 },
+    learnings: [
+      'Designing for a pedagogy, not a feature list, means translating a philosophy into interaction patterns.',
+      'The richest insight came from a stakeholder pain we didn’t expect — planning, not delivery.',
+      '“Equivalent but different” experiences for two user types is a genuinely hard, rewarding problem.',
+    ],
+    reflection: "I'd test with students during the semester (not just retrospectively) and build a partial working prototype to validate the visual planner in real use.",
   },
   {
     id: 'focusbuddy', n: '04', name: 'FocusBuddy',
@@ -183,44 +268,74 @@ export const CASE_STUDIES = [
     meta: 'INST704 Inclusive Design · UMD · Fall 2024 · Team: Samita, Ruchica Sinha, Urvi Varma',
     accent: '#b5587e',
     hero: 'Productivity tools are making ADHD worse. We redesigned one from scratch — with the people they’re failing.',
-    lede: "A participatory research project that co-designed a low-cognitive-load task app with graduate students who have ADHD — and discovered the problem was emotional, not functional.",
-    stats: [
-      { v: '3', l: 'rounds of co-design' },
-      { v: '5', l: 'ADHD challenges mapped' },
-      { v: '2', l: 'concepts tested' },
-      { v: '7', l: 'user flows designed' },
-    ],
+    lede: 'A participatory research project that co-designed a low-cognitive-load task app with graduate students who have ADHD — and found the real problem was emotional, not functional.',
     links: { medium: null, live: null, source: `${GH}/focusbuddy/focusbuddy-source-of-truth.md` },
-    heroImg: { id: 'hero', label: 'Research-finding hero visual', w: 1600, h: 900 },
-    overview: {
-      problem:
-        "Graduate students with ADHD don't just struggle with focus — they struggle with tools designed for people who don't. Executive-function difficulties (task initiation, time blindness, emotional regulation) make traditional productivity tools not merely unhelpful but actively harmful: they add cognitive load instead of removing it. Task lists create paralysis. Missed checkboxes create guilt. The tools meant to help quietly become the problem. Rather than design for ADHD users from assumptions, we co-designed with them.",
-      insight: { quote: '"Both participants described feeling WORSE after using productivity tools — not better. The guilt of unchecked boxes was more damaging than having no system at all."', by: 'The finding that reframed the entire project' },
-      context:
-        "We ran participatory design across three rounds with two graduate students with ADHD — contextual interviews, journey and empathy mapping, and a co-design session where they built their own mockups with a custom UI kit. That last session was the breakthrough: their own designs revealed preferences we'd never have guessed from observation, especially the desire for automation they could override.",
+    snapshot: {
+      role: 'UX researcher & designer (co-led)',
+      duration: '1 semester · Fall 2024',
+      team: 'Team of 3',
+      company: 'UMD · INST704 Inclusive Design',
+      impact: ['3 rounds of participatory co-design', '2 concepts tested with participants', 'Neuroinclusive principles defined'],
+      summary: '"Co-designed a low-cognitive-load task app with ADHD grad students — and found the real problem was emotional, not functional."',
     },
-    decisions: [
-      { title: 'Never punish a missed task', body: "No red overdue badges. No broken streaks. No guilt-inducing language. Missed tasks simply get rescheduled, because the research was unambiguous: guilt doesn't create productivity, it creates avoidance. The single most important design principle of the whole project came directly from the emotional finding — the tool must never make the user feel bad about their productivity.", img: { id: 'decision-1', label: 'No-guilt rescheduling flow', w: 900, h: 1600 } },
-      { title: 'Accountability through people, not apps', body: "\"I'm never late for group projects, just for myself.\" Social motivation worked where self-motivation failed, so we built StudyBro — peer-based check-ins and shared study sessions. Instead of another app notification you'll learn to ignore, the accountability comes from a real person who's counting on you." },
-      { title: 'Automation you can always override', body: "Smart defaults that adapt to your energy and productive times — but nothing forced. The co-design sessions made this explicit: users with a fraught relationship to productivity tools need to feel in control. Forced automation, however clever, reproduces the exact loss-of-agency that made the old tools feel punishing." },
-    ],
-    gallery: [
-      { id: 'concept-1', label: 'Concept 1 — structure + StudyBro', w: 900, h: 1600, caption: 'Daily dashboard + peer accountability' },
-      { id: 'concept-2', label: 'Concept 2 — smart + adaptive', w: 900, h: 1600, caption: 'AI breakdowns, no-guilt reflection' },
-      { id: 'codesign', label: 'Co-design DIY screens (P1 & P2)', w: 1400, h: 1000, caption: 'Participants designing their own ideal tool' },
-    ],
-    process: {
-      steps: ['Literature review', 'Round 1 interviews', 'Round 2 journey maps', 'Round 3 co-design', 'Prototyping', 'Testing & gap analysis'],
-      artifacts: [{ id: 'affinity', label: 'Affinity / empathy maps', w: 1400, h: 900, caption: 'Thematic analysis across three rounds' }],
-      role: "I co-led every phase alongside Ruchica and Urvi. My specific contributions: overdue task management (the no-guilt rescheduling flow), progress tracking and productivity analytics (an app that learns when you're most productive), and customizable notifications inspired by Duolingo's persistent-but-friendly approach — repetitive, but never negative.",
-      outcome:
-        "We produced two tested concept prototypes, a systematic five-dimension gap analysis (What / Where / When / Who / How), a set of design principles for neuroinclusive productivity, a co-authored Medium article, and a final video presentation. The work proved you can't design a good productivity tool for ADHD by bolting on “accessibility features” — you have to question the foundational interaction model.",
-      learnings: [
-        'Emotional experience is a design material — the guilt finding changed everything downstream.',
-        'Participatory design produces fundamentally different insight than user testing: co-designing WITH people beats designing FOR them.',
-        'The principles transfer directly to AI: adapt to user state, stay forgiving, automate with consent.',
+    heroImg: { id: 'hero', label: 'Research-finding hero visual', w: 1600, h: 900 },
+    execSummary: {
+      challenge: 'Productivity tools assume neurotypical focus. For graduate students with ADHD they add cognitive load and, worse, guilt — quietly becoming the problem they were meant to solve.',
+      metrics: [{ v: '3', l: 'co-design rounds' }, { v: '2', l: 'concepts tested' }, { v: '7', l: 'user flows' }],
+    },
+    execImg: { id: 'exec', label: 'The guilt finding, visualized', w: 1200, h: 800 },
+    problem: {
+      intro: 'Traditional task tools fail ADHD users in a specific way you can feel — and it compounds.',
+      quote: '"Both participants felt WORSE after using productivity tools — the guilt was more damaging than no system at all."',
+      bullets: ['Task lists create paralysis, not clarity.', 'Missed checkboxes generate guilt that compounds avoidance.', 'Elaborate personal workarounds become their own source of overwhelm.'],
+      note: 'Left unaddressed, the “help” keeps making things worse.',
+    },
+    problemImg: { id: 'problem', label: 'Journey map of the guilt cycle', w: 1400, h: 900 },
+    understanding: {
+      intro: 'Across interviews, journey mapping, and a co-design session, three themes emerged.',
+      themes: [
+        { title: 'Guilt, not features', body: 'The emotional cost of the tools outweighed their function — the most important finding.' },
+        { title: 'Social beats self', body: '“I’m never late for group projects, just for myself.” External accountability worked.' },
+        { title: 'Control over automation', body: 'They wanted smart help they could always override — forced automation felt punishing.' },
       ],
     },
+    synthesisImg: { id: 'synthesis', label: 'Affinity / empathy maps', w: 1500, h: 950 },
+    opportunity: {
+      intro: 'Two concept directions to test against the guilt finding:',
+      options: [
+        { label: 'Concept 1 — structure + StudyBro', note: 'Daily dashboard + peer accountability.' },
+        { label: 'Concept 2 — smart + adaptive', note: 'AI breakdowns + no-guilt reflection.' },
+      ],
+      chosen: 'Rather than pick one early, we prototyped both and tested them directly against the emotional finding.',
+    },
+    opportunityImg: { id: 'opportunity', label: 'Two concepts, mapped to needs', w: 1400, h: 850 },
+    decisions: [
+      { title: 'Never punish a missed task', body: 'No red badges, no broken streaks, no guilt language — missed tasks just reschedule. Guilt doesn’t create productivity; it creates avoidance.', img: { id: 'decision-1', label: 'No-guilt rescheduling flow', w: 900, h: 1600 } },
+      { title: 'Accountability through people', body: 'Social motivation worked where self-motivation failed, so we built StudyBro — peer check-ins instead of another ignorable notification.', img: { id: 'decision-2', label: 'StudyBro peer check-ins', w: 900, h: 1600 } },
+      { title: 'Automation you can override', body: 'Smart defaults that adapt to energy, but nothing forced. Users with a fraught relationship to these tools need to feel in control.', img: { id: 'decision-3', label: 'Adaptive, overridable defaults', w: 900, h: 1600 } },
+    ],
+    collaboration: {
+      body: 'Participatory design — we co-designed with users, not for them.',
+      points: ['Participants built their own mockups with a custom UI kit (the breakthrough session).', 'Three-person team with equal contribution across research, synthesis, and design.', 'The emotional finding reframed the whole team’s direction mid-project.'],
+    },
+    collabImg: { id: 'collab', label: 'Co-design session artifacts', w: 1400, h: 900 },
+    launch: {
+      title: 'Testing & Validation',
+      intro: 'We validated the concepts against the core finding:',
+      phases: [{ label: 'Prototype', note: 'Two concepts, 7 flows' }, { label: 'Test', note: 'Sessions with P1 & P2' }, { label: 'Synthesize', note: '5-dimension gap analysis' }],
+    },
+    launchImg: { id: 'launch', label: 'Testing + gap-analysis summary', w: 1500, h: 520 },
+    results: {
+      cards: [{ v: '2', l: 'concepts tested' }, { v: '5-dim', l: 'gap analysis' }, { v: 'Principles', l: 'for neuroinclusive design' }, { v: '1', l: 'Medium article + video' }],
+      note: 'A research project — outcomes are validated concepts and transferable principles, not production metrics.',
+    },
+    resultsImg: { id: 'results', label: 'Design principles + tested concepts', w: 1500, h: 900 },
+    learnings: [
+      'Emotional experience is a design material — the guilt finding changed everything downstream.',
+      'Co-designing WITH people produces fundamentally different insight than testing FOR them.',
+      'The principles transfer directly to AI: adapt to state, stay forgiving, automate with consent.',
+    ],
+    reflection: "I'd recruit more participants beyond a narrow demographic, and build a working prototype to test whether the design actually lowers cognitive load over weeks, not minutes.",
   },
 ]
 

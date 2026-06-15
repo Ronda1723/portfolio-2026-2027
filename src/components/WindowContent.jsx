@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   ABOUT, EXPERIENCE, RESUME, BLOG, PROJECTS, CASE_STUDIES, PERSON, START_HERE,
 } from '../data/content.js'
 import ImageSlot from './ImageSlot.jsx'
 import BeforeAfter from './BeforeAfter.jsx'
-import Tabs from './Tabs.jsx'
 import FlappyGame from './FlappyGame.jsx'
 
 export default function WindowContent({ win, open }) {
@@ -230,29 +229,31 @@ function CaseStudies({ open }) {
   )
 }
 
+const SECTIONS = [
+  ['summary', 'Summary'], ['problem', 'Problem'], ['research', 'Research'],
+  ['opportunity', 'Opportunity'], ['solution', 'Solution'], ['team', 'Leadership'],
+  ['launch', 'Launch'], ['results', 'Results'], ['reflection', 'Reflection'],
+]
+
 function CaseStudyDetail({ id, open }) {
-  const c = CASE_STUDIES.find((x) => x.id === id)
-  const [tab, setTab] = useState('overview')
+  const idx = CASE_STUDIES.findIndex((x) => x.id === id)
+  const c = CASE_STUDIES[idx]
+  const refs = useRef({})
   if (!c) return <div className="p-4">Not found.</div>
   const base = `case-studies/${c.id}`
-  const tabs = [
-    { key: 'overview', label: 'Overview' },
-    { key: 'decisions', label: 'Decisions' },
-    { key: 'gallery', label: 'Gallery' },
-    { key: 'process', label: 'Process' },
-  ]
   const textOn = c.accentText || '#fff'
+  const next = CASE_STUDIES[(idx + 1) % CASE_STUDIES.length]
+  const Sec = ({ id: sid, children }) => <div ref={(el) => (refs.current[sid] = el)} style={{ scrollMarginTop: 8 }}>{children}</div>
+  const go = (sid) => refs.current[sid]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
     <div style={{ '--accent': c.accent }}>
+      {/* HERO */}
       <div className="px-7 py-7 border-b border-black" style={{ background: c.accent, color: textOn }}>
         <div className="kicker opacity-90">Case {c.n} · {c.name}</div>
         <div className="headline text-[26px] sm:text-[30px] mt-2.5 max-w-[640px]">{c.hero}</div>
-        <div className="text-[15px] mt-3 max-w-[600px] font-medium" style={{ opacity: 0.92 }}>{c.lede}</div>
+        <div className="text-[15px] mt-3 max-w-[600px] font-medium" style={{ opacity: 0.94 }}>{c.lede}</div>
         <div className="text-[12px] mt-3 pixel" style={{ opacity: 0.85 }}>{c.meta}</div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-5 max-w-[560px]">
-          {c.stats.map((s, i) => <div key={i} className="stat" style={{ color: '#151515' }}><b>{s.v}</b><span>{s.l}</span></div>)}
-        </div>
         <div className="mt-5 flex flex-wrap gap-2.5">
           {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
           {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
@@ -260,59 +261,155 @@ function CaseStudyDetail({ id, open }) {
         </div>
       </div>
 
-      <Tabs tabs={tabs} active={tab} onChange={setTab} />
+      {/* sticky section nav */}
+      <div className="tabbar overflow-x-auto sticky top-0 z-10" style={{ position: 'sticky' }}>
+        {SECTIONS.map(([sid, label]) => (
+          <button key={sid} className="tab" onClick={() => go(sid)}>{label}</button>
+        ))}
+      </div>
 
-      <div className="p-7 prose-mac max-w-[680px]">
-        {tab === 'overview' && (
-          <>
-            <ImageSlot slot={c.heroImg} base={base} open={open} className="mb-5" />
-            <h2>The problem</h2>
-            <p>{c.overview.problem}</p>
-            <div className="pull-quote">{c.overview.insight.quote}<div className="text-[12px] mt-2 pixel" style={{ color: 'var(--muted)', fontFamily: 'inherit' }}>— {c.overview.insight.by}</div></div>
-            <p>{c.overview.context}</p>
-          </>
-        )}
-        {tab === 'decisions' && (
-          <>
-            <h2>Key design decisions</h2>
-            {c.decisions.map((d, i) => (
-              <div key={i} className="card mb-3.5">
-                <div className="headline text-[16px]">{d.title}</div>
-                <p className="text-[14.5px] mt-1.5 mb-2">{d.body}</p>
-                {d.img && <ImageSlot slot={d.img} base={base} open={open} />}
-              </div>
-            ))}
-          </>
-        )}
-        {tab === 'gallery' && (
-          <>
-            {c.beforeAfter && (<><h2>{c.beforeAfter.label}</h2><BeforeAfter before={c.beforeAfter.before} after={c.beforeAfter.after} base={base} label={c.beforeAfter.label} /></>)}
-            <h2>The work</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">{c.gallery.map((g) => <ImageSlot key={g.id} slot={g} base={base} open={open} />)}</div>
-          </>
-        )}
-        {tab === 'process' && (
-          <>
-            <h2>Process</h2>
-            <div className="flex flex-wrap items-center gap-1.5 mb-4">
-              {c.process.steps.map((s, i) => (
-                <span key={i} className="flex items-center">
-                  <span className="chip">{s}</span>
-                  {i < c.process.steps.length - 1 && <span className="opacity-40 mx-0.5">→</span>}
-                </span>
-              ))}
+      <div className="p-7 prose-mac max-w-[700px]">
+        {/* HERO IMAGE + SNAPSHOT */}
+        <ImageSlot slot={c.heroImg} base={base} open={open} className="mb-5" />
+        <div className="card mb-2">
+          <div className="kicker mb-2" style={{ color: 'var(--muted)' }}>Project Snapshot</div>
+          <div className="grid grid-cols-2 gap-x-5 gap-y-2 text-[13.5px]">
+            <Field k="Role" v={c.snapshot.role} />
+            <Field k="Duration" v={c.snapshot.duration} />
+            <Field k="Team" v={c.snapshot.team} />
+            <Field k="Context" v={c.snapshot.company} />
+          </div>
+          <div className="mt-3 pt-3 border-t border-black/15">
+            <div className="kicker mb-1" style={{ color: 'var(--muted)' }}>Impact</div>
+            <div className="flex flex-wrap gap-1.5">{c.snapshot.impact.map((i, k) => <span key={k} className="chip">✦ {i}</span>)}</div>
+            <div className="pull-quote mt-3 !text-[16px]">{c.snapshot.summary}</div>
+          </div>
+        </div>
+
+        {/* EXECUTIVE SUMMARY */}
+        <Sec id="summary">
+          <h2>Executive summary</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-start">
+            <p className="sm:col-span-3 !mb-0">{c.execSummary.challenge}</p>
+            <div className="sm:col-span-2 grid grid-cols-1 gap-2">
+              {c.execSummary.metrics.map((m, i) => <div key={i} className="stat"><b>{m.v}</b><span>{m.l}</span></div>)}
             </div>
-            {c.process.artifacts?.map((a) => <ImageSlot key={a.id} slot={a} base={base} open={open} className="mb-4" />)}
-            <h2>My role</h2>
-            <p>{c.process.role}</p>
-            <h2>Outcome</h2>
-            <p>{c.process.outcome}</p>
-            {c.process.learnings && (<><h2>What I took from it</h2><ul>{c.process.learnings.map((l, i) => <li key={i}>{l}</li>)}</ul></>)}
-          </>
-        )}
+          </div>
+          <div className="mt-4">
+            {c.beforeAfter
+              ? <BeforeAfter before={c.beforeAfter.before} after={c.beforeAfter.after} base={base} label={c.beforeAfter.label} />
+              : c.execImg && <ImageSlot slot={c.execImg} base={base} open={open} />}
+          </div>
+        </Sec>
+
+        {/* PROBLEM */}
+        <Sec id="problem">
+          <h2>The problem</h2>
+          <p>{c.problem.intro}</p>
+          {c.problem.quote && <div className="pull-quote">{c.problem.quote}</div>}
+          <ul>{c.problem.bullets.map((b, i) => <li key={i}>{b}</li>)}</ul>
+          <p style={{ color: 'var(--muted)' }}><strong>If nothing changed:</strong> {c.problem.note}</p>
+          <ImageSlot slot={c.problemImg} base={base} open={open} />
+        </Sec>
+
+        {/* RESEARCH / UNDERSTANDING */}
+        <Sec id="research">
+          <h2>Understanding the problem</h2>
+          <p>{c.understanding.intro}</p>
+          {c.understanding.themes.map((th, i) => (
+            <div key={i} className="card mb-2.5">
+              <div className="headline text-[15px]">Theme {i + 1} — {th.title}</div>
+              <p className="text-[14px] mt-1 !mb-0">{th.body}</p>
+            </div>
+          ))}
+          <ImageSlot slot={c.synthesisImg} base={base} open={open} className="mt-2" />
+        </Sec>
+
+        {/* OPPORTUNITY */}
+        <Sec id="opportunity">
+          <h2>Defining the opportunity</h2>
+          <p>{c.opportunity.intro}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            {c.opportunity.options.map((o, i) => (
+              <div key={i} className="card !p-3"><div className="font-semibold text-[13.5px]">{o.label}</div><div className="text-[12.5px] mt-1" style={{ color: 'var(--muted)' }}>{o.note}</div></div>
+            ))}
+          </div>
+          <p className="mt-3"><strong>Decision:</strong> {c.opportunity.chosen}</p>
+          <ImageSlot slot={c.opportunityImg} base={base} open={open} />
+        </Sec>
+
+        {/* SOLUTION / DECISIONS */}
+        <Sec id="solution">
+          <h2>Designing the solution</h2>
+          {c.decisions.map((d, i) => (
+            <div key={i} className="card mb-3.5">
+              <div className="kicker" style={{ color: 'var(--muted)' }}>Decision {i + 1}</div>
+              <div className="headline text-[16px] mt-0.5">{d.title}</div>
+              <p className="text-[14.5px] mt-1.5 mb-2">{d.body}</p>
+              {d.img && <ImageSlot slot={d.img} base={base} open={open} />}
+            </div>
+          ))}
+        </Sec>
+
+        {/* COLLABORATION & LEADERSHIP */}
+        <Sec id="team">
+          <h2>Collaboration &amp; leadership</h2>
+          <p>{c.collaboration.body}</p>
+          <ul>{c.collaboration.points.map((p, i) => <li key={i}>{p}</li>)}</ul>
+          {c.collabImg && <ImageSlot slot={c.collabImg} base={base} open={open} />}
+        </Sec>
+
+        {/* LAUNCH */}
+        <Sec id="launch">
+          <h2>{c.launch.title || 'Launch strategy'}</h2>
+          <p>{c.launch.intro}</p>
+          <div className="flex flex-wrap items-stretch gap-2.5">
+            {c.launch.phases.map((ph, i) => (
+              <div key={i} className="card !p-3 flex-1 min-w-[120px]"><div className="font-semibold text-[13.5px]">{ph.label}</div><div className="text-[12.5px] mt-1" style={{ color: 'var(--muted)' }}>{ph.note}</div></div>
+            ))}
+          </div>
+          {c.launchImg && <ImageSlot slot={c.launchImg} base={base} open={open} className="mt-3" />}
+        </Sec>
+
+        {/* RESULTS */}
+        <Sec id="results">
+          <h2>Results</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            {c.results.cards.map((m, i) => <div key={i} className="stat" style={{ borderColor: c.accent }}><b style={{ color: c.accent }}>{m.v}</b><span>{m.l}</span></div>)}
+          </div>
+          <p className="text-[13px] mt-3" style={{ color: 'var(--muted)' }}>{c.results.note}</p>
+          {c.resultsImg && <ImageSlot slot={c.resultsImg} base={base} open={open} />}
+        </Sec>
+
+        {/* LEARNED */}
+        <h2>What I learned</h2>
+        <ol>{c.learnings.map((l, i) => <li key={i}>{l}</li>)}</ol>
+
+        {/* REFLECTION */}
+        <Sec id="reflection">
+          <h2>Reflection</h2>
+          <p>{c.reflection}</p>
+        </Sec>
+
+        {/* NEXT */}
+        <div className="mt-6 pt-5 border-t border-black/15">
+          <div className="kicker mb-2" style={{ color: 'var(--muted)' }}>Next case study</div>
+          <button className="card card-hover w-full text-left flex items-center gap-3" onClick={() => open('caseStudy', next.id, next.name)}>
+            <span className="w-9 h-7 rounded flex-none" style={{ background: next.accent, border: '1.5px solid var(--border)' }} />
+            <span className="flex-1">
+              <span className="headline text-[15px] block">{next.n} · {next.name}</span>
+              <span className="text-[12.5px] block" style={{ color: 'var(--muted)' }}>{next.subtitle}</span>
+            </span>
+            <span className="text-lg">→</span>
+          </button>
+        </div>
       </div>
     </div>
   )
+}
+
+function Field({ k, v }) {
+  return <div><div className="kicker" style={{ color: 'var(--muted)' }}>{k}</div><div className="font-semibold leading-tight">{v}</div></div>
 }
 
 // ---------- Games ----------
