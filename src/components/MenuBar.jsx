@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function MenuBar({ onOpen, theme, onToggleTheme, onRestart, crt, onToggleCrt }) {
+export default function MenuBar({ onOpen, theme, onToggleTheme, onRestart, crt, onToggleCrt, muted, onToggleMute, onSearch }) {
   const [open, setOpen] = useState(null) // which menu is open
   const ref = useRef(null)
   const [clock, setClock] = useState(formatClock())
@@ -26,6 +26,7 @@ export default function MenuBar({ onOpen, theme, onToggleTheme, onRestart, crt, 
         { sep: true },
         { label: theme === 'dark' ? '✓ Dark Appearance' : 'Dark Appearance', action: onToggleTheme },
         { label: crt ? '✓ CRT Screen Filter' : 'CRT Screen Filter', action: onToggleCrt },
+        { label: muted ? 'Sound: Off' : '✓ Sound: On', action: onToggleMute },
         { sep: true },
         { label: 'Restart', action: onRestart },
       ],
@@ -87,7 +88,8 @@ export default function MenuBar({ onOpen, theme, onToggleTheme, onRestart, crt, 
           )}
         </div>
       ))}
-      <div className="ml-auto flex items-center gap-3 pr-1">
+      <div className="ml-auto flex items-center gap-2 pr-1">
+        <button className="px-2 h-[22px]" title="Search (⌘K)" onMouseDown={(e) => { e.stopPropagation(); onSearch() }}>🔎</button>
         <span className="hidden sm:inline text-[12px]">★ Samita OS</span>
         <span className="px-2 border-l border-black/30">{clock}</span>
       </div>

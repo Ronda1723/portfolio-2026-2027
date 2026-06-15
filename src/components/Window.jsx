@@ -1,8 +1,31 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 
-export default function Window({ win, active, onFocus, onClose, onMinimize, onMaximize, onMove, children }) {
+export default function Window({ win, active, onFocus, onClose, onMinimize, onMaximize, onMove, onResize, children }) {
   const drag = useRef(null)
+
+  const startResize = (e) => {
+    e.stopPropagation()
+    onFocus()
+    const point = 'touches' in e ? e.touches[0] : e
+    const start = { sx: point.clientX, sy: point.clientY, ow: win.w, oh: win.h }
+    const move = (ev) => {
+      const p = 'touches' in ev ? ev.touches[0] : ev
+      const nw = Math.max(280, start.ow + (p.clientX - start.sx))
+      const nh = Math.max(180, start.oh + (p.clientY - start.sy))
+      onResize(nw, nh)
+    }
+    const up = () => {
+      window.removeEventListener('mousemove', move)
+      window.removeEventListener('mouseup', up)
+      window.removeEventListener('touchmove', move)
+      window.removeEventListener('touchend', up)
+    }
+    window.addEventListener('mousemove', move)
+    window.addEventListener('mouseup', up)
+    window.addEventListener('touchmove', move, { passive: false })
+    window.addEventListener('touchend', up)
+  }
 
   const startDrag = (e) => {
     if (win.maximized) return
@@ -73,7 +96,8 @@ export default function Window({ win, active, onFocus, onClose, onMinimize, onMa
           </button>
         </div>
       </div>
-      <div className="flex-1 overflow-auto mac-scroll bg-[#f5f5ef]">{children}</div>
+      <div className="flex-1 overflow-auto mac-scroll" style={{ background: 'var(--paper)' }}>{children}</div>
+      {!win.maximized && <div className="resize-handle" onMouseDown={startResize} onTouchStart={startResize} />}
     </motion.div>
   )
 }
