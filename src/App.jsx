@@ -13,7 +13,7 @@ import { sfx, setMuted as setSfxMuted, resumeAudio } from './lib/sound.js'
 const TITLES = {
   about: 'About Me', experience: 'Experience', resume: 'Resume', contact: 'Contact',
   blog: 'Blog', projects: 'Projects', caseStudies: 'Case Studies', trash: 'Trash',
-  startHere: 'Start Here', picture: 'Picture Viewer',
+  startHere: 'Start Here', picture: 'Picture Viewer', games: 'Games', game: 'Artemis II — Flappy',
 }
 
 const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 700
@@ -25,7 +25,8 @@ function sizeFor(type) {
     case 'startHere': return { w: 720, h: 620 }
     case 'picture': return { w: 880, h: 660 }
     case 'project': case 'about': case 'experience': case 'resume': case 'contact': return { w: 680, h: 580 }
-    case 'projects': case 'caseStudies': return { w: 640, h: 520 }
+    case 'projects': case 'caseStudies': case 'games': return { w: 640, h: 520 }
+    case 'game': return { w: 392, h: 690 }
     case 'blog': return { w: 680, h: 580 }
     default: return { w: 620, h: 520 }
   }

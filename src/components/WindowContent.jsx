@@ -5,6 +5,7 @@ import {
 import ImageSlot from './ImageSlot.jsx'
 import BeforeAfter from './BeforeAfter.jsx'
 import Tabs from './Tabs.jsx'
+import FlappyGame from './FlappyGame.jsx'
 
 export default function WindowContent({ win, open }) {
   switch (win.type) {
@@ -19,6 +20,8 @@ export default function WindowContent({ win, open }) {
     case 'caseStudy': return <CaseStudyDetail id={win.payload} open={open} />
     case 'project': return <ProjectDetail id={win.payload} open={open} />
     case 'picture': return <Picture payload={win.payload} />
+    case 'games': return <Games open={open} />
+    case 'game': return <FlappyGame />
     case 'trash': return <Trash open={open} />
     default: return <div className="p-4">Empty folder.</div>
   }
@@ -307,6 +310,28 @@ function CaseStudyDetail({ id, open }) {
             {c.process.learnings && (<><h2>What I took from it</h2><ul>{c.process.learnings.map((l, i) => <li key={i}>{l}</li>)}</ul></>)}
           </>
         )}
+      </div>
+    </div>
+  )
+}
+
+// ---------- Games ----------
+function Games({ open }) {
+  return (
+    <div>
+      <FinderBar count={1} label="Arcade" />
+      <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="card">
+          <div className="rounded-lg mb-3 flex items-center justify-center text-5xl" style={{ background: '#0b1020', height: 120, border: '1.5px solid #151515' }}>🚀</div>
+          <div className="headline text-[16px]">Artemis II — Flappy</div>
+          <div className="text-[13px] mt-1 mb-3 prose-mac" style={{ color: 'var(--muted)' }}>
+            A Flappy-Bird-style tribute to the Artemis II launch. Tap, click, or hit Space to fly the capsule through the asteroid field.
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            <button className="mac-btn mac-btn-primary" style={{ background: '#1d4aff' }} onClick={() => open('game', 'artemis', 'Artemis II — Flappy')}>▶ Play</button>
+            <button className="mac-btn" onClick={() => open('project', 'artemis', 'Artemis II')}>📄 About this build</button>
+          </div>
+        </div>
       </div>
     </div>
   )

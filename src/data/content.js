@@ -355,6 +355,7 @@ export const DESKTOP_ICONS = [
   { id: 'experience', label: 'Experience', emoji: '💼', type: 'experience' },
   { id: 'resume', label: 'Resume', emoji: '📝', type: 'resume' },
   { id: 'blog', label: 'Blog', emoji: '📰', type: 'blog' },
+  { id: 'games', label: 'Games', emoji: '🎮', type: 'games' },
   { id: 'contact', label: 'Contact', emoji: '✉️', type: 'contact' },
 ]
 
@@ -366,4 +367,5 @@ export const SEARCH_INDEX = [
   { kind: 'Page', label: 'Experience', sub: 'Work & research', type: 'experience', payload: null },
   { kind: 'Page', label: 'Resume', sub: 'Highlights + download', type: 'resume', payload: null },
   { kind: 'Page', label: 'Contact', sub: 'Get in touch', type: 'contact', payload: null },
+  { kind: 'Game', label: 'Artemis II — Flappy', sub: 'Fly the capsule through asteroids', type: 'game', payload: 'artemis' },
 ]
