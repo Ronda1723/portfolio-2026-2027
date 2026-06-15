@@ -227,6 +227,12 @@ body {
 .exec-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; align-items: start; }
 @container (min-width: 560px) { .exec-grid { grid-template-columns: 3fr 2fr; } }
 
+/* responsive horizontal gutters — grow toward 160px as the window widens */
+.cqpad { padding-left: 22px; padding-right: 22px; }
+@container (min-width: 560px) { .cqpad { padding-left: 48px; padding-right: 48px; } }
+@container (min-width: 820px) { .cqpad { padding-left: 96px; padding-right: 96px; } }
+@container (min-width: 1080px) { .cqpad { padding-left: 160px; padding-right: 160px; } }
+
 /* ---------- misc ---------- */
 .icon-emoji { image-rendering: auto; }
 @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }

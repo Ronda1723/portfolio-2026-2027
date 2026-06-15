@@ -52,7 +52,7 @@ function StartHere({ open }) {
   return (
     <div>
       <div className="px-6 py-2 border-b border-black kicker" style={{ background: 'var(--yellow)', color: '#151515' }}>{START_HERE.kicker}</div>
-      <div className="p-7 prose-mac max-w-[620px] mx-auto">
+      <div className="cqpad py-7 prose-mac">
         <div className="headline text-[27px] mb-4">{START_HERE.headline}</div>
         {START_HERE.body.map((p, i) => <p key={i} className={i === 0 ? 'lead' : ''}>{p}</p>)}
         <div className="my-4">{START_HERE.chips.map((c, i) => <span key={i} className="chip">✦ {c}</span>)}</div>
@@ -72,7 +72,7 @@ function StartHere({ open }) {
 // ---------- Pages ----------
 function About() {
   return (
-    <div className="p-7 prose-mac max-w-[640px] mx-auto">
+    <div className="cqpad py-7 prose-mac">
       <div className="flex items-center gap-3 mb-4">
         <span className="text-[40px]">🧑‍💻</span>
         <div>
@@ -92,7 +92,7 @@ function About() {
 
 function Experience() {
   return (
-    <div className="p-6 max-w-[700px] mx-auto">
+    <div className="cqpad py-6">
       <div className="headline text-lg mb-1">Work &amp; Research</div>
       <div className="text-[13px] mb-4" style={{ color: 'var(--muted)' }}>The long and the short of it.</div>
       <div className="flex flex-col gap-3">
@@ -113,7 +113,7 @@ function Experience() {
 
 function Resume() {
   return (
-    <div className="p-7 prose-mac max-w-[620px] mx-auto">
+    <div className="cqpad py-7 prose-mac">
       <div className="headline text-2xl mb-1">{RESUME.title}</div>
       <p className="lead">{RESUME.summary}</p>
       <h2>Highlights</h2>
@@ -134,7 +134,7 @@ function Contact() {
     </a>
   )
   return (
-    <div className="p-7 prose-mac max-w-[560px] mx-auto">
+    <div className="cqpad py-7 prose-mac">
       <div className="headline text-2xl mb-2">Let’s talk ✉️</div>
       <p className="lead">Looking for a product designer who prototypes in code? I’m open to roles at early-stage AI startups.</p>
       <div className="mt-3 card !p-0 overflow-hidden divide-y divide-black/15">
@@ -151,9 +151,9 @@ function Blog() {
   return (
     <div>
       <FinderBar count={BLOG.length} label="Building with AI" />
-      <div className="flex flex-col max-w-[760px] mx-auto w-full">
+      <div className="flex flex-col cqpad">
         {BLOG.map((b) => (
-          <a key={b.id} href={b.link} target="_blank" rel="noreferrer" className="border-b border-black/15 px-5 py-4 hover:bg-black/5 block transition-colors">
+          <a key={b.id} href={b.link} target="_blank" rel="noreferrer" className="border-b border-black/15 py-4 hover:bg-black/5 block transition-colors">
             <div className="headline text-[16px]">📰 {b.title}</div>
             <div className="prose-mac text-[14px] mt-1" style={{ color: 'var(--muted)' }}>{b.excerpt}</div>
           </a>
@@ -184,15 +184,13 @@ function ProjectDetail({ id, open }) {
   const base = `projects/${p.id}`
   return (
     <div style={{ '--accent': p.accent }}>
-      <div className="px-7 py-6" style={{ background: p.accent, color: '#151515' }}>
-        <div className="center-col max-w-[620px]">
-          <div className="kicker opacity-80">Project · Day {p.day}</div>
-          <div className="headline text-[26px] mt-1.5">{p.emoji} {p.name}</div>
-          <div className="text-[16px] mt-2 max-w-[520px] font-medium">{p.one}</div>
-          <div className="mt-3">{p.tools.map((t) => <span key={t} className="chip">{t}</span>)}</div>
-        </div>
+      <div className="cqpad py-6" style={{ background: p.accent, color: '#151515' }}>
+        <div className="kicker opacity-80">Project · Day {p.day}</div>
+        <div className="headline text-[26px] mt-1.5">{p.emoji} {p.name}</div>
+        <div className="text-[16px] mt-2 font-medium">{p.one}</div>
+        <div className="mt-3">{p.tools.map((t) => <span key={t} className="chip">{t}</span>)}</div>
       </div>
-      <div className="p-7 prose-mac max-w-[620px] mx-auto">
+      <div className="cqpad py-7 prose-mac">
         <h2>What it does</h2>
         <ol>{p.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
         <h2>Key decision</h2>
@@ -251,28 +249,26 @@ function CaseStudyDetail({ id, open }) {
   return (
     <div style={{ '--accent': c.accent }}>
       {/* HERO */}
-      <div className="px-7 py-7 border-b border-black" style={{ background: c.accent, color: textOn }}>
-        <div className="center-col max-w-[720px]">
-          <div className="kicker opacity-90">Case {c.n} · {c.name}</div>
-          <div className="headline text-[26px] sm:text-[30px] mt-2.5">{c.hero}</div>
-          <div className="text-[15px] mt-3 font-medium" style={{ opacity: 0.94 }}>{c.lede}</div>
-          <div className="text-[12px] mt-3 pixel" style={{ opacity: 0.85 }}>{c.meta}</div>
-          <div className="mt-5 flex flex-wrap gap-2.5">
-            {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
-            {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
-            {c.links.source && <a className="mac-btn" href={c.links.source} target="_blank" rel="noreferrer">📄 Source doc</a>}
-          </div>
+      <div className="cqpad py-7 border-b border-black" style={{ background: c.accent, color: textOn }}>
+        <div className="kicker opacity-90">Case {c.n} · {c.name}</div>
+        <div className="headline text-[26px] sm:text-[30px] mt-2.5">{c.hero}</div>
+        <div className="text-[15px] mt-3 font-medium" style={{ opacity: 0.94 }}>{c.lede}</div>
+        <div className="text-[12px] mt-3 pixel" style={{ opacity: 0.85 }}>{c.meta}</div>
+        <div className="mt-5 flex flex-wrap gap-2.5">
+          {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
+          {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
+          {c.links.source && <a className="mac-btn" href={c.links.source} target="_blank" rel="noreferrer">📄 Source doc</a>}
         </div>
       </div>
 
       {/* sticky section nav */}
-      <div className="tabbar overflow-x-auto sticky top-0 z-10" style={{ position: 'sticky' }}>
+      <div className="tabbar cqpad overflow-x-auto sticky top-0 z-10" style={{ position: 'sticky' }}>
         {SECTIONS.map(([sid, label]) => (
           <button key={sid} className="tab" onClick={() => go(sid)}>{label}</button>
         ))}
       </div>
 
-      <div className="p-7 prose-mac max-w-[700px]">
+      <div className="cqpad py-7 prose-mac">
         {/* HERO IMAGE + SNAPSHOT */}
         <ImageSlot slot={c.heroImg} base={base} open={open} className="mb-5" />
         <div className="card mb-2">
