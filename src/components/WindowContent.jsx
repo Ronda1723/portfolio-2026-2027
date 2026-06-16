@@ -13,7 +13,7 @@ export default function WindowContent({ win, open }) {
     case 'experience': return <Experience />
     case 'resume': return <Resume />
     case 'contact': return <Contact />
-    case 'blog': return <Blog />
+    case 'blog': return <Blog open={open} />
     case 'projects': return <Projects open={open} />
     case 'caseStudies': return <CaseStudies open={open} />
     case 'caseStudy': return <CaseStudyDetail id={win.payload} open={open} />
@@ -147,17 +147,20 @@ function Contact() {
   )
 }
 
-function Blog() {
+function Blog({ open }) {
   return (
     <div>
       <FinderBar count={BLOG.length} label="Building with AI" />
       <div className="flex flex-col cqpad">
-        {BLOG.map((b) => (
-          <a key={b.id} href={b.link} target="_blank" rel="noreferrer" className="border-b border-black/15 py-4 hover:bg-black/5 block transition-colors">
-            <div className="headline text-[16px]">📰 {b.title}</div>
-            <div className="prose-mac text-[14px] mt-1" style={{ color: 'var(--muted)' }}>{b.excerpt}</div>
-          </a>
-        ))}
+        {BLOG.map((b) => {
+          const name = PROJECTS.find((p) => p.id === b.id)?.name || 'Project'
+          return (
+            <button key={b.id} onClick={() => open('project', b.id, name)} className="border-b border-black/15 py-4 hover:bg-black/5 block w-full text-left transition-colors">
+              <div className="headline text-[16px]">📰 {b.title} <span className="text-[12px] font-normal" style={{ color: 'var(--muted)' }}>→ open project</span></div>
+              <div className="prose-mac text-[14px] mt-1" style={{ color: 'var(--muted)' }}>{b.excerpt}</div>
+            </button>
+          )
+        })}
       </div>
     </div>
   )
@@ -201,10 +204,11 @@ function ProjectDetail({ id, open }) {
         <p>{p.hard}</p>
         <h2>Screens</h2>
         <div className="cqgrid cqgrid-2">{p.media.map((m) => <ImageSlot key={m.id} slot={m} base={base} open={open} />)}</div>
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          {p.live && <a className="mac-btn mac-btn-primary" style={{ background: p.accent, color: '#151515' }} href={p.live} target="_blank" rel="noreferrer">▶ Live demo</a>}
-          <a className="mac-btn" href={p.link} target="_blank" rel="noreferrer">📄 Build log</a>
-        </div>
+        {p.live && (
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            <a className="mac-btn mac-btn-primary" style={{ background: p.accent, color: '#151515' }} href={p.live} target="_blank" rel="noreferrer">▶ Live demo</a>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -254,11 +258,12 @@ function CaseStudyDetail({ id, open }) {
         <div className="headline text-[26px] sm:text-[30px] mt-2.5">{c.hero}</div>
         <div className="text-[15px] mt-3 font-medium" style={{ opacity: 0.94 }}>{c.lede}</div>
         <div className="text-[12px] mt-3 pixel" style={{ opacity: 0.85 }}>{c.meta}</div>
-        <div className="mt-5 flex flex-wrap gap-2.5">
-          {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
-          {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
-          {c.links.source && <a className="mac-btn" href={c.links.source} target="_blank" rel="noreferrer">📄 Source doc</a>}
-        </div>
+        {(c.links.medium || c.links.live) && (
+          <div className="mt-5 flex flex-wrap gap-2.5">
+            {c.links.medium && <a className="mac-btn" href={c.links.medium} target="_blank" rel="noreferrer">Read on Medium →</a>}
+            {c.links.live && <a className="mac-btn" href={c.links.live} target="_blank" rel="noreferrer">▶ Live</a>}
+          </div>
+        )}
       </div>
 
       {/* sticky section nav */}
